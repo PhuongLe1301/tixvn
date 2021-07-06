@@ -12,7 +12,7 @@ export default function Header() {
                 <div className="col-4">
                     <div className="center">
                         <NavLink  className="nav-link" to="/home">Home</NavLink>
-                        <NavLink  className="nav-link" to="/detal">Detail</NavLink>
+                        <NavLink  className="nav-link" to="/detail">Detail</NavLink>
                     </div>
                 </div>
                 <div className="col-4">
