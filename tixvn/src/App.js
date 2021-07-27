@@ -22,7 +22,7 @@ function App() {
     <Router history={history}>
       <Switch>
         <HomeTemplate component={Home} exact path="/"/>
-        <HomeTemplate component={Detail} exact path="/detail"/>
+        <HomeTemplate component={Detail} exact path="/detail/:postId"/>
       </Switch>
     </Router>
   );

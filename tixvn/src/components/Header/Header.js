@@ -11,7 +11,7 @@ export default function Header() {
                 </div>
                 <div className="col-4">
                     <div className="center">
-                        <NavLink  className="nav-link" to="/home">Home</NavLink>
+                        <NavLink  className="nav-link" to="/">Home</NavLink>
                         <NavLink  className="nav-link" to="#theaterList">Detail</NavLink>
                         <a href="#theaterList">abc</a>
                     </div>

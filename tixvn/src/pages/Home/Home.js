@@ -1,16 +1,17 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { NavLink } from 'react-router-dom'
+import { getApiFilmAction } from '../../redux/action/FilmAction';
+import { useDispatch, useSelector } from 'react-redux'
 import './Home.css';
 // import { Carousel } from 'antd';
 export default function Home() {
-
-    // function onChange(a, b, c) {
-    //     console.log(a, b, c);
-    // }
-    // const contentStyle = {
-    //     height: '100%',
-    //     textAlign: 'center',
-    //     width: '100%',
-    // };
+    const dispatch = useDispatch()
+    const arrFilm = useSelector(state => state.FilmReducer.arrFilm);
+    console.log('thong tin phim', arrFilm)
+    useEffect(() => {
+        const action = getApiFilmAction('GP01')
+        dispatch(action)
+    }, [])
     return (
 
         <div className="container_fluid">
@@ -63,6 +64,22 @@ export default function Home() {
                     <span className="carousel-control-next-icon" aria-hidden="true" />
                     <span className="sr-only">Next</span>
                 </a>
+            </div>
+            <div>
+                <h1 className="text-center display-4">Danh sách phim</h1>
+                <div className="row mt-5" id="theaterList">
+                    {arrFilm?.map((film, index) => {
+                        return <div className="col-3" key={index}>
+                            <div className="card text-white bg-dark">
+                                <img className="card-img-top" src={film.hinhAnh} style={{ width: 350, height: 300 }} alt />
+                                <div className="card-body">
+                                    <h4 className="card-title">{film.tenPhim}</h4>
+                                </div>
+                                <NavLink className="btn btn-success" to={`/detail/${film.maPhim}`}>ĐẶT VÉ</NavLink>
+                            </div>
+                        </div>
+                    })}
+                </div>
             </div>
         </div>
     )
