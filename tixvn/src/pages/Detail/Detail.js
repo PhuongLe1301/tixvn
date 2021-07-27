@@ -1,52 +1,65 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import "./Detail.css"
-import { StarFilled } from '@ant-design/icons';
-export default function Detail() {
+import { useSelector, useDispatch } from 'react-redux';
+import { NavLink } from 'react-router-dom'
+import TabMenu from './TabMenu';
+import { getFilmDetailAction } from '../../redux/action/FilmAction';
+import moment from 'moment';
+export default function Detail(props) {
+    const dispatch = useDispatch()
+    const { thongTinChiTiet } = useSelector(state => state.FilmReducer)
+    console.log('thongTinPhim', thongTinChiTiet)
+    useEffect(() => {
+        const action = getFilmDetailAction(props.match.params.postId);
+        dispatch(action)
+    }, [])
     return (
-        <div className="detailB">
-            <div>
-                <img src="https://s3img.vcdn.vn/123phim/2021/03/godzilla-vs-kong-16150059793097.jpg" className="detailBg" />
-                <div className="container-fluid">
-                    <div className="infoDetail">
+        <div className="detailB mt-5">
+            <div className="container">
+                <div className="d-flex">
+                    <NavLink className="backMenu" to="/home">Trang Chủ</NavLink>
+                    <h2 className="filmTitle">{thongTinChiTiet.tenPhim}</h2>
+                </div>
+                <div className="row">
+                    <div className="col-3">
+                        <img className="pt-3" style={{ width: 250, height: 450 }} src={thongTinChiTiet.hinhAnh} />
+                    </div>
+                    <div className="col-9">
+                        <h2 className="filmTitle2">{thongTinChiTiet.tenPhim}</h2>
+                        <p>{thongTinChiTiet.moTa}</p>
                         <div className="d-flex">
-                            <img src="https://picsum.photos/id/1/200/200" className="mr-3" />
-                            <div className="d-block">
-                                <span className="dateTimes">26.03.2021</span>
-                                <br />
-                                <h6 className="ageType">C13</h6>
-                                <span className="filmName">Godzilla vs. Kong</span>
-                                <br />
-                                <span className="detailFilmInfo">100 phút - 6.4 IMDb - 2D/Digital</span>
-                                <br />
-                                <button className="btnBuyTicketDetail">Mua vé</button>
-                            </div>
+                            <ul className="infoFilm pl-1 mr-4">
+                                <li>Phân Loại</li>
+                                <li>Đánh giá</li>
+                                <li>Khởi Chiếu</li>
+                                <li>Thời Luọng</li>
+                                <li>Ngôn Ngữ</li>
+                            </ul>
+                            <ul className="infoFilm">
+                                <li className="text-danger" style={{ fontWeight: 'bold' }}>C18 - Phim dành cho khán giả từ 18 tuổi trở lên</li>
+                                <li>{thongTinChiTiet.danhGia}/10</li>
+                                <li>{moment(thongTinChiTiet.ngayKhoiChieu).format('YYYY/MM/DD')}</li>
+                                <li>129 phút</li>
+                                <li>Phụ đề tiếng Việt</li>
+                            </ul>
                         </div>
-                        <div>
-                            <div className="circleStar">
-                                <div className="circlePercent">
-                                    <span>8.8</span>
-
-                                </div>
-                            </div>
-                            <div className="ml-4">
-                                <StarFilled className="starFilled" />
-                                <StarFilled className="starFilled" />
-                                <StarFilled className="starFilled" />
-                                <StarFilled className="starFilled" />
-                            </div>
-                            <div className="humanRate">
-                                <span>43 người đánh giá</span>
-                            </div>
+                        <div className="d-flex">
+                            <NavLink className="btn btn-success mr-3" to="/checkout">Mua vé</NavLink>
+                            <a href={thongTinChiTiet.trailer} className="btn btn-success">Xem trailer</a>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div className="bgBottom">
-            </div>
-            <div className="infoBottom">
-                <h1 className="infoTitle">Lịch Chiếu</h1>
-                <h1 className="infoTitle">Lịch Chiếu</h1>
-                <h1 className="infoTitle">Lịch Chiếu</h1>
+                <div className="detailBottom">
+                    <TabMenu heThongRapChieu={thongTinChiTiet.heThongRapChieu} />
+                    {/* <div>
+                        {navtab.map((nav,index)=>{
+                            return <button onClick={()=>{
+                                setMyNavtab(nav)
+                            }}>{nav}</button>
+                        })}
+                        <h3>{myNavtab}</h3>
+                    </div> */}
+                </div>
             </div>
         </div>
     )
