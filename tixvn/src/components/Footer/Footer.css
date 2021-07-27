@@ -1,0 +1,27 @@
+.footer p{
+    margin-bottom: 0;
+}
+
+.footer img{
+    width: 30px;
+    margin: 5px 10px 5px 0;
+}
+
+.footer a{
+    color: #949494;
+}
+
+hr{
+    border-top: 1px solid #4a4a4a;
+}
+
+/* ĐỐI TÁC  */
+.doitac_footer img{
+    background-color: white;
+    border: 1px solid white;
+    border-radius: 50%;
+    
+}
+
+
+
