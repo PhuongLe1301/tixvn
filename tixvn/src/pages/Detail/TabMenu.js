@@ -12,11 +12,11 @@ export default class TabMenu extends Component {
             </div>} key={index}>
                 {htr.cumRapChieu.map((cumRap, index) => {
                     return <div key={index}>
-                        <div className="d-flex mt-5 ml-2" >
+                        <div className="d-flex mt-2 ml-2" >
                             <div>
                                 <img src={htr.logo} width="50" height="50" alt="..." />
                             </div>
-                            <div className="ml-2">
+                            <div className="ml-2 text-white">
                                 <p>{cumRap.tenCumRap}</p>
                             </div>
                         </div>
@@ -24,7 +24,7 @@ export default class TabMenu extends Component {
                             <div className="row">
                                 {/*Hàm slice(vị trí bắt đầu, số phần tử lấy ) */}
                                 {cumRap.lichChieuPhim.slice(0, 12).map((lichChieu, index) => {
-                                    return <div className="col-3 mt-2" key={index}>
+                                    return <div className="col-3 mt-2 text-white" key={index}>
                                         <NavLink to={`/checkout/${lichChieu.maLichChieu}`} >{moment(lichChieu.ngayChieuGioChieu).format('hh:mm A')}</NavLink>
                                         <p>{moment(lichChieu.ngayChieuGioChieu).format('DD/MM')}</p>
                                     </div>
