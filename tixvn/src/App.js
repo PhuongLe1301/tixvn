@@ -13,22 +13,14 @@ export const history = createBrowserHistory();
 
 function App() {
   return (
-    // <BrowserRouter>
-    //  <Header/>
-    //     <Switch>
-
-    //       <Route exact path="/" component={Home} />
-    //       <Route exact path="/detail" component={Detail} />
-    //     </Switch>
-    
-    // </BrowserRouter>
     <Router history={history}>
       <Switch>
         <HomeTemplate component={Home} exact path="/"/>
         <HomeTemplate component={Detail} exact path="/detail/:postId"/>
         <HomeTemplate component={CheckOut} exact path="/checkout/:id"/>
         <Route component={Register} exact path="/register"/>
-        <Route component={News} exact path="/news"/>
+        {/* Admin  */}
+        <AdminTemplate component={ManageMovie} exact path="/admin/quanlyphim"/>
       </Switch>
     </Router>
   );
