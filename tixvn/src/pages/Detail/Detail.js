@@ -4,11 +4,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom'
 import TabMenu from './TabMenu';
 import { getFilmDetailAction } from '../../redux/action/FilmAction';
+import Trailer from '../Trailer/Trailer';
 import moment from 'moment';
 export default function Detail(props) {
     const dispatch = useDispatch()
     const { thongTinChiTiet } = useSelector(state => state.FilmReducer)
     console.log('thongTinPhim', thongTinChiTiet)
+    const [buttonPopup,setButtonPopup] = useState(false);
     useEffect(() => {
         const action = getFilmDetailAction(props.match.params.postId);
         dispatch(action)
@@ -46,7 +48,12 @@ export default function Detail(props) {
                             </div>
                             <div className="d-flex">
                                 <NavLink className="btn btn-success mr-3" to="/checkout">Mua vé</NavLink>
-                                <a href={thongTinChiTiet.trailer} className="btn btn-success">Xem trailer</a>
+                                <button onClick={()=>setButtonPopup(true)} className="btn btn-success">Xem trailer</button>
+                                <Trailer trigger={buttonPopup} setTrigger={setButtonPopup}>
+                                    <div>
+                                        <iframe width="1110" height="450" src={thongTinChiTiet.trailer} frameBorder="0" allowFullScreen></iframe>
+                                    </div>
+                                </Trailer>
                             </div>
                         </div>
                     </div>
