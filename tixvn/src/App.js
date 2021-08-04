@@ -7,6 +7,7 @@ import Home from './pages/Home/Home';
 import Register from './pages/Register/Register';
 import CheckOut from './pages/CheckOut/CheckOut';
 import HomeTemplate from './template/HomeTemplate/HomeTemplate';
+import News from './pages/News/News';
 
 export const history = createBrowserHistory();
 
@@ -27,6 +28,7 @@ function App() {
         <HomeTemplate component={Detail} exact path="/detail/:postId"/>
         <HomeTemplate component={CheckOut} exact path="/checkout/:id"/>
         <Route component={Register} exact path="/register"/>
+        <Route component={News} exact path="/news"/>
       </Switch>
     </Router>
   );
