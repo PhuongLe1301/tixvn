@@ -7,7 +7,7 @@ export default function Header() {
         <div className="navbarHeader">
             <div className="row">
                 <div className="col-4">
-                    <img src="https:tix.vn/app/assets/img/icons/web-logo.png" style={{ width: 50, height: 50 }} />
+                    <img src="https:tix.vn/app/assets/img/icons/web-logo.png" style={{ width: 50, height: 50 }} alt="https:tix.vn/app/assets/img/icons/web-logo.png"/>
                 </div>
                 <div className="col-4">
                     <div className="center">
@@ -19,7 +19,7 @@ export default function Header() {
                 <div className="col-4">
                     <div className="account">
                         <img className="imgAccount" src="https:tix.vn/app/assets/img/avatar.png" />
-                        <p className="p">Đăng Nhập</p>
+                        <NavLink className="p" to="/login">Đăng Nhập</NavLink>
                     </div>
                     <div className="location">
                         <img className="imgLocation" src="https:tix.vn/app/assets/img/icons/location-header.png"/>
