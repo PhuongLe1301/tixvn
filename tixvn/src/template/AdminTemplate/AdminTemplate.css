@@ -21,13 +21,13 @@
 
 .site-layout .userFunction {
   top: 22%;
-  right: 10%;
+  right: 0%;
 }
 
 .site-layout .userFunction img{
   width: 35px;
   height: 35px;
-  border: 1px solid black;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   margin-top: -2px;
 }
 
@@ -38,3 +38,98 @@
 .ant-menu-submenu-placement-bottomLeft{
   left: 1263px !important;
 }
+
+.adminTemplate .ant-layout-sider{
+  background: rgb(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+  box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+}
+
+.adminTemplate .ant-layout-sider-children ul, 
+.adminTemplate .ant-layout, 
+.adminTemplate .ant-layout header,
+.adminTemplate .ant-layout main{
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.adminTemplate .ant-layout-sider-children .ant-menu-item-selected{
+  background-color: rgb(86, 20, 169) !important;
+}
+
+.site-layout .userFunction .ant-menu-submenu:hover{
+  color: rgb(86, 20, 169) !important;
+}
+
+.site-layout .userFunction .ant-menu-submenu:hover::after{
+  border-bottom: 2px solid rgb(86, 20, 169) !important;
+}
+
+.adminTemplate .ant-layout{
+  border-left: solid 1px rgba(255, 255, 255, 0.3);
+}
+
+.adminTemplate .ant-layout header ul{
+  background: inherit;
+  border-bottom: 0;
+}
+
+.adminTemplate .ant-layout main{
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 25px;
+}
+
+.adminTemplate .ant-layout-header .trigger:hover{
+  color: rgb(86, 20, 169);
+}
+
+/* BACKGROUND */
+.adminTemplate{
+  /* position: relative; */
+  background: linear-gradient( 135deg, #fc00ff, #00dbde);
+  background-image: linear-gradient( 150deg, #5a00ff 0%, #ff1ff7 100%, #ff1ff7 100%);
+  width: 100%;
+  height: 100%;
+}
+
+/* .adminTemplate .adminTemplate-bg{
+  position: absolute;
+  filter: blur(150px);
+} */
+
+/* .adminTemplate .adminTemplate-bg:nth-child(1){
+  top: -350px;
+  width: 600px;
+  height: 600px;
+  background: #ff359b;
+
+  top: 14%;
+    left: 20%;
+    width: 50%;
+    height: 50%;
+} */
+
+/* .adminTemplate .adminTemplate-bg:nth-child(2){
+  bottom: -150px;
+  left: 100px;
+  width: 500px;
+  height: 500px;
+  background: #fffd87;
+ 
+  bottom: -36%;
+    left: 0%;
+    width: 60%;
+    height: 60%;
+} */
+
+/* .adminTemplate .adminTemplate-bg:nth-child(3){
+  bottom: 50px;
+  left: 100px;
+  width: 300px;
+  height: 300px;
+  background: #00d2ff;
+
+  bottom: -37%;
+    left: 59%;
+    width: 40%;
+    height: 40%;
+} */

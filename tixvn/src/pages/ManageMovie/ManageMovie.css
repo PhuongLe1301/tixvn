@@ -1,0 +1,78 @@
+/* .manageMovie .manageMovie-table{
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+} */
+
+/* BUTTON ADD  */
+.manageMovie .btn-add{
+    background: rgba(255, 255, 255, 0.5);
+    border: solid 1px rgba(255, 255, 255, 0.3);
+    color: rgb(86, 20, 169);
+    font-size: 20px;
+    font-weight: 800;
+}
+
+.manageMovie .btn-add:active{
+    background-color: rgb(86, 20, 169) !important;
+    border-color: rgb(45, 10, 88) !important;
+}
+
+.manageMovie .btn-add:focus{
+    box-shadow: 0 0 0 0.2rem rgb(129 40 167 / 50%) !important;
+}
+
+/* SEARCH MOVIE  */
+.manageMovie-search .ant-input-affix-wrapper, .manageMovie-search .ant-input-affix-wrapper input{
+    background-color: rgb(86, 20, 169);
+}
+
+.manageMovie-search .ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover{
+    /* CẦN FIX LẠI  */
+    border-color: #fff;
+}
+
+.manageMovie-search .ant-input-search .ant-input-group .ant-input-affix-wrapper:not(:last-child){
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+
+.manageMovie-search .ant-input-affix-wrapper input, 
+.manageMovie-search .ant-input-affix-wrapper .ant-input-suffix span{
+    color: #fff;
+}
+
+.manageMovie-search .ant-input-group-addon button{
+    background: rgb(86, 20, 169);
+    color: #fff !important;
+}
+
+/* TABLE ANTDS */
+.manageMovie-table .ant-table{
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+}
+
+.manageMovie-table .ant-table table tbody td:first-child{
+    border-radius: 0 0 0 10px;
+}
+
+.manageMovie-table .ant-table table tbody td:last-child{
+    border-radius: 0 0 10px 0;
+}
+
+.manageMovie-table .ant-table table thead th{
+    background: inherit;
+}
+
+    /* BUTTON NUMBER OF PAGES */
+.manageMovie-table li button{
+    background-color: rgba(255, 255, 255, 0.5) !important;
+    border: solid 1px rgba(255, 255, 255, 0.3) !important;
+    border-radius: 5px !important;
+}
+
+.manageMovie-table .ant-pagination-item{
+    background: rgba(255, 255, 255, 0.5) !important;
+    border: solid 1px rgba(255, 255, 255, 0.3) !important;
+    border-radius: 5px !important;
+}

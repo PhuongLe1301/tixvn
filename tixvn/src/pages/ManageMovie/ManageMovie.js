@@ -1,6 +1,7 @@
 import React from 'react';
 import { Table, Tag, Space, Input } from 'antd';
 import { AudioOutlined } from '@ant-design/icons';
+import './ManageMovie.css';
 
 const { Search } = Input;
 
@@ -100,14 +101,14 @@ export default function ManageMovie() {
   ];
 
   return (
-    <div>
-      <button type="submit" className="btn btn-success ml-3">Thêm phim</button>
-      <div className="col-12 my-2">
+    <div className="manageMovie">
+      <button type="submit" className="btn btn-success ml-3 btn-add">Thêm phim</button>
+      <div className="col-12 my-2 manageMovie-search">
         <Space direction="vertical">
           <Search placeholder="input search text" allowClear onSearch={onSearch} style={{ width: 500 }} />
         </Space>,
       </div>
-      <Table className="ml-3" columns={columns} dataSource={data} />
+      <Table className="ml-3 manageMovie-table" columns={columns} dataSource={data} />
     </div>
   )
 }
