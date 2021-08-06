@@ -27,8 +27,7 @@
 }
 
 .manageMovie-search .ant-input-affix-wrapper:not(.ant-input-affix-wrapper-disabled):hover{
-    /* CẦN FIX LẠI  */
-    border-color: #fff;
+    border-color: black;
 }
 
 .manageMovie-search .ant-input-search .ant-input-group .ant-input-affix-wrapper:not(:last-child){
