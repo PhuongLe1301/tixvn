@@ -46,6 +46,18 @@
     color: #fff !important;
 }
 
+.manageMovie .ant-btn:hover, .ant-btn:focus{
+    border-color: black;
+}
+
+.manageMovie .ant-input-search > .ant-input-group > .ant-input-group-addon:last-child{
+    border-radius: 10px;
+}
+
+.manageMovie .ant-input-search > .ant-input-group > .ant-input-group-addon:last-child .ant-input-search-button{
+    border-radius: 0 10px 10px 0 !important;
+}
+
 /* TABLE ANTDS */
 .manageMovie-table .ant-table{
     background: rgba(255, 255, 255, 0.5);

@@ -82,6 +82,10 @@
   color: rgb(86, 20, 169);
 }
 
+.adminTemplate .ant-menu-item:hover, .ant-menu-item-active, .ant-menu:not(.ant-menu-inline) .ant-menu-submenu-open, .ant-menu-submenu-active, .ant-menu-submenu-title:hover{
+  color: rgb(86, 20, 169) !important;
+}
+
 /* BACKGROUND */
 .adminTemplate{
   /* position: relative; */
