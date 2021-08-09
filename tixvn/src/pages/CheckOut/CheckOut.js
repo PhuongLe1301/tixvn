@@ -33,7 +33,7 @@ export default function CheckOut(props) {
                                 <img src="https://s3img.vcdn.vn/123phim/2018/09/1721cfa98768f300c03792e25ceb0191.png" className="mt-4 mr-3" width="50" height="50" />
                                 <div className="mt-4 text-white">
                                     <span>CineStar</span>
-                                    <h4 className="text-white">{moment(thongTinPhim?.ngayChieu).format('MM/DD')}-{thongTinPhim?.gioChieu}-{thongTinPhim?.tenRap}</h4>
+                                    <h4 className="text-white">{thongTinPhim?.ngayChieu}-{thongTinPhim?.gioChieu}-{thongTinPhim?.tenRap}</h4>
                                 </div>
                             </div>
                         </div>

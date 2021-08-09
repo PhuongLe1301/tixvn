@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Divider, Tabs } from 'antd';
+import {Divider, Tabs } from 'antd';
 import { NavLink } from 'react-router-dom';
 import moment from 'moment';
 
@@ -40,10 +40,19 @@ export default class TabMenu extends Component {
     render() {
         return (
             <div>
-                <Tabs tabPosition={'left'}>
-                    {this.renderHeThongRap()}
+                <Tabs defaultActiveKey="1" centered>
+                    <TabPane tab="Lịch Chiếu" key="1" style={{color:'green'}}>
+                        <Tabs tabPosition={'left'}>
+                            {this.renderHeThongRap()}
+                        </Tabs>
+                    </TabPane>
+                    <TabPane tab="Thông Tin" key="2">
+                        Thông Tin
+                    </TabPane>
+                    <TabPane tab="Tab 3" key="3">
+                        Content of Tab Pane 3
+                    </TabPane>
                 </Tabs>
-               
             </div>
         );
     }
