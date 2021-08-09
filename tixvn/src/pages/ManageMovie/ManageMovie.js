@@ -1,11 +1,15 @@
-import React from 'react';
-import { Table, Tag, Space, Input } from 'antd';
+import React, {useState} from 'react';
+import { Table, Tag, Space, Input, Button } from 'antd';
 import { AudioOutlined } from '@ant-design/icons';
 import './ManageMovie.css';
+import PopupShowtime from './PopupShowtime';
+
 
 const { Search } = Input;
 
 export default function ManageMovie() {
+
+  const [buttonPopup, setButtonPopup] = useState(false);
 
   const suffix = (
     <AudioOutlined
@@ -71,7 +75,11 @@ export default function ManageMovie() {
       render: (text, record) => (
         <Space size="middle">
           {/* <a>Invite {record.name}</a> */}
-          <a>Tạo lịch chiếu</a>
+          <Button onClick={()=> setButtonPopup(true)}>Tạo lịch chiếu</Button>
+          <PopupShowtime trigger={buttonPopup} setTrigger={setButtonPopup}>
+            {/* <h3>My popup</h3>
+            <p>This is my button triggered popup</p> */}
+          </PopupShowtime>
           <a>Sửa</a>
           <a>Xóa</a>
         </Space>
@@ -109,6 +117,7 @@ export default function ManageMovie() {
         </Space>,
       </div>
       <Table className="ml-3 manageMovie-table" columns={columns} dataSource={data} />
+      
     </div>
   )
 }
