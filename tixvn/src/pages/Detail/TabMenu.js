@@ -1,37 +1,35 @@
 import React, { Component } from 'react'
-import {Divider, Tabs } from 'antd';
+import { Divider, Tabs } from 'antd';
 import { NavLink } from 'react-router-dom';
 import moment from 'moment';
+
 
 const { TabPane } = Tabs
 export default class TabMenu extends Component {
     renderHeThongRap = () => {
         return this.props.heThongRapChieu?.map((htr, index) => {
-            return <TabPane tab={<div>
+            return <TabPane tab={<div style={{display:'flex',alignItems:'center'}}>
                 <img src={htr.logo} width="50" height="50" />
+                <div className="text-center ml-2">
+                    {htr.tenHeThongRap}
+                </div>
             </div>} key={index}>
                 {htr.cumRapChieu.map((cumRap, index) => {
-                    return <div key={index}>
-                        <div className="d-flex mt-2 ml-2" >
-                            <div>
-                                <img src={htr.logo} width="50" height="50" alt="..." />
-                            </div>
-                            <div className="ml-2 text-white">
-                                <p>{cumRap.tenCumRap}</p>
+                    return <div className="mt-4" key={index}>
+                        <div className="d-flex">
+                            <img style={{width:50,height:50}} src={cumRap.hinhAnh}/>
+                            <div className="ml-2">
+                               <h6>{cumRap.tenCumRap}</h6>
+                               <p>{cumRap.diaChi}</p>
                             </div>
                         </div>
-                        <div className="mt-2">
-                            <div className="row">
-                                {/*Hàm slice(vị trí bắt đầu, số phần tử lấy ) */}
-                                {cumRap.lichChieuPhim.slice(0, 12).map((lichChieu, index) => {
-                                    return <div className="col-3 mt-2 text-white" key={index}>
-                                        <NavLink to={`/checkout/${lichChieu.maLichChieu}`} >{moment(lichChieu.ngayChieuGioChieu).format('hh:mm A')}</NavLink>
-                                        <p>{moment(lichChieu.ngayChieuGioChieu).format('DD/MM')}</p>
+                        <div className="row">
+                                {cumRap.lichChieuPhim?.slice(0,12).map((lichChieu,index)=>{{
+                                    return <div className="col-3" key={index}>
+                                        <NavLink style={{color:'green',fontWeight:'bold'}} to={`/checkout/${lichChieu.maLichChieu}`} >{moment(lichChieu.ngayChieuGioChieu).format('hh:mm A')}</NavLink>
                                     </div>
-                                })}
+                                }})}
                             </div>
-                        </div>
-
                     </div>
                 })}
             </TabPane>
@@ -40,22 +38,12 @@ export default class TabMenu extends Component {
     render() {
         return (
             <div>
-                <Tabs defaultActiveKey="1" centered>
-                    <TabPane tab="Lịch Chiếu" key="1" style={{color:'green'}}>
-                        <Tabs tabPosition={'left'}>
-                            {this.renderHeThongRap()}
-                        </Tabs>
-                    </TabPane>
-                    <TabPane tab="Thông Tin" key="2">
-                        Thông Tin
-                    </TabPane>
-                    <TabPane tab="Tab 3" key="3">
-                        Content of Tab Pane 3
-                    </TabPane>
+                <Tabs tabPosition={'left'}>
+                    {this.renderHeThongRap()}
                 </Tabs>
             </div>
         );
     }
 }
-
+{/* <NavLink to={`/checkout/${lichChieu.maLichChieu}`} >{moment(lichChieu.ngayChieuGioChieu).format('hh:mm A')}</NavLink> */}
 
