@@ -9,6 +9,7 @@
     "@tsamantanis/react-glassmorphism": "^1.1.2",
     "add": "^2.0.6",
     "antd": "^4.16.2",
+    "aos": "^2.3.4",
     "axios": "^0.21.1",
     "craco-less": "^1.18.0",
     "datepicker": "0.0.0",

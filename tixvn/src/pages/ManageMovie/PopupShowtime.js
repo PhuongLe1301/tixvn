@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import './PopupShowtime.css';
-import { Form, Button, Select, DatePicker, InputNumber } from 'antd';
+import { Form, Button, Select, DatePicker, InputNumber, Input } from 'antd';
 import { CloseCircleOutlined } from '@ant-design/icons';
+import "aos/dist/aos.css";
+import Aos from 'aos';
 
 function PopupShowtime(props) {
+
+    useEffect(()=>{
+        Aos.init({duration:2000});
+    }, []);
 
     function onChange(value, dateString) {
         console.log('Selected Time: ', value);
@@ -16,7 +22,7 @@ function PopupShowtime(props) {
 
     return (props.trigger) ? (
         <div className="popupShowtime">
-            <div className="popupShowtime-inner text-white">
+            <div data-aos="zoom-in" className="popupShowtime-inner text-white">
                 <CloseCircleOutlined
                     className="close-btn"
                     onClick={() => props.setTrigger(false)}
@@ -37,8 +43,16 @@ function PopupShowtime(props) {
                             <Select.Option value="demo">Demo</Select.Option>
                         </Select>
                     </Form.Item>
+                    <Form.Item label="Rạp">
+                        <Select placeholder="Chọn rạp">
+                            <Select.Option value="demo">Demo</Select.Option>
+                        </Select>
+                    </Form.Item>
                     <Form.Item label="Ngày chiếu giờ chiếu">
                         <DatePicker showTime onChange={onChange} onOk={onOk} />
+                    </Form.Item>
+                    <Form.Item label="Thời lượng phim">
+                        <Input />
                     </Form.Item>
                     <Form.Item label="Giá vé">
                         <InputNumber />

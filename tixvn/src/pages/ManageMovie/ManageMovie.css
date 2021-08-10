@@ -3,23 +3,36 @@
     border-radius: 10px;
 } */
 
-/* BUTTON ADD  */
-.manageMovie .btn-add{
-    background: rgba(255, 255, 255, 0.5);
+/* BUTTON MANAGE MOPVIE  */
+.manageMovie .btnManageMovie{
+    /* background: rgba(255, 255, 255, 0.5); */
     border: solid 1px rgba(255, 255, 255, 0.3);
     color: rgb(86, 20, 169);
+    /* font-size: 20px; */
+    /* font-weight: 800; */
+}
+
+.manageMovie .addMovie-btn{
+    background: rgba(255, 255, 255, 0.5);
     font-size: 20px;
     font-weight: 800;
 }
 
-.manageMovie .btn-add:active{
+.manageMovie .action-btn{
+    background: rgb(86, 20, 169, 0.5);
+    border-radius: 10px;
+    color: white;
+}
+
+.manageMovie .addMovie-btn:active{
     background-color: rgb(86, 20, 169) !important;
     border-color: rgb(45, 10, 88) !important;
 }
 
-.manageMovie .btn-add:focus{
+.manageMovie .addMovie-btn:focus{
     box-shadow: 0 0 0 0.2rem rgb(129 40 167 / 50%) !important;
 }
+
 
 /* SEARCH MOVIE  */
 .manageMovie-search .ant-input-affix-wrapper, .manageMovie-search .ant-input-affix-wrapper input{
@@ -47,6 +60,7 @@
 
 .manageMovie .ant-btn:hover, .ant-btn:focus{
     border-color: black;
+    color: rgb(86, 20, 169);
 }
 
 .manageMovie .ant-input-search > .ant-input-group > .ant-input-group-addon:last-child{

@@ -9,6 +9,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1;
+    transition: 0.5s;
+    transform: scale(50px);
 }
 
 .popupShowtime-inner{
@@ -53,4 +56,13 @@
     padding: 0px 15px;
     height: 42px;
     border-radius: 10px;
+}
+
+/* INPUT ANTDS */
+.popupShowtime .ant-picker{
+    width: 100%;
+}
+
+.popupShowtime .ant-input-number{
+    width: 100%;
 }
