@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Route } from 'react-router-dom';
+import { NavLink, Route } from 'react-router-dom';
 import './AdminTemplate.css';
 import { Layout, Menu } from 'antd';
 import {
@@ -47,10 +47,10 @@ export default function AdminTemplate(props) {
             </div>
             <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
               <Menu.Item key="1" icon={<PlaySquareOutlined />}>
-                Quản lý phim
+                <NavLink to="/admin/quanlyphim">Quản lý phim</NavLink>
               </Menu.Item>
               <Menu.Item key="2" icon={<UserOutlined />}>
-                Quản lý người dùng
+              <NavLink to="/admin/quanlynguoidung">Quản lý người dùng</NavLink>
               </Menu.Item>
             </Menu>
           </Sider>
