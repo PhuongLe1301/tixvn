@@ -119,7 +119,7 @@ export default function ManageMovie() {
       <AddMovie trigger={buttonPopupAdd} setTrigger={setButtonPopupAdd}></AddMovie>
       <div className="col-12 my-2 manageMovie-search">
         <Space direction="vertical">
-          <Search placeholder="input search text" allowClear onSearch={onSearch} style={{ width: 500 }} />
+          <Search placeholder="input search text" allowClear onSearch={onSearch} style={{ width: '45vw' }} />
         </Space>,
       </div>
       <Table className="ml-3 manageMovie-table" columns={columns} dataSource={data} />

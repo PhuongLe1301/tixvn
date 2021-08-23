@@ -1,15 +1,7 @@
-/* .manageMovie .manageMovie-table{
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-} */
-
 /* BUTTON MANAGE MOPVIE  */
 .manageMovie .btnManageMovie{
-    /* background: rgba(255, 255, 255, 0.5); */
     border: solid 1px rgba(255, 255, 255, 0.3);
     color: rgb(86, 20, 169);
-    /* font-size: 20px; */
-    /* font-weight: 800; */
 }
 
 .manageMovie .addMovie-btn{
@@ -75,6 +67,11 @@
 .manageMovie-table .ant-table{
     background: rgba(255, 255, 255, 0.5);
     border-radius: 10px;
+    overflow-x: auto;
+}
+
+.manageMovie-table .ant-table::-webkit-scrollbar{
+    display: none;
 }
 
 .manageMovie-table .ant-table table tbody td:first-child{
@@ -87,6 +84,12 @@
 
 .manageMovie-table .ant-table table thead th{
     background: inherit;
+    scroll-snap-align: start;
+}
+
+.manageMovie-table .ant-table table{
+    scroll-snap-type: x mandatory;
+    scroll-snap-stop: always;
 }
 
     /* BUTTON NUMBER OF PAGES */
