@@ -1,6 +1,7 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
-import './Header.css'
+import React from 'react';
+import { NavLink } from 'react-router-dom';
+import './Header.css';
+import {history} from '../../App';
 
 export default function Header() {
     return (
@@ -19,7 +20,9 @@ export default function Header() {
                 <div className="col-4">
                     <div className="account">
                         <img className="imgAccount" src="https:tix.vn/app/assets/img/avatar.png" />
-                        <NavLink className="p" to="/login">Đăng Nhập</NavLink>
+                        <a className="p" onClick={()=>{
+                            history.push('/login')
+                        }}>Đăng Nhập</a>
                     </div>
                     <div className="location">
                         <img className="imgLocation" src="https:tix.vn/app/assets/img/icons/location-header.png"/>

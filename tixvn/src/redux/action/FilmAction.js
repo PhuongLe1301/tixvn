@@ -1,5 +1,5 @@
 import axios from "axios";
-import { SET_CHI_TIET_PHONG_VE, SET_FILMS, SET_FILM_DETAIL } from "../../ulti/setting";
+import { SET_CHI_TIET_PHONG_VE, SET_FILMS, SET_FILM_DETAIL } from "../../ultil/setting";
 
 export const getApiFilmAction = (maNhom) => {
     return async (dispatch) => {
