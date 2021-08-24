@@ -1,0 +1,68 @@
+.popupShowtime{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* height: 100vh; */
+    height: 100%;
+    background-color: rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    transition: 0.5s;
+    transform: scale(50px);
+}
+
+.popupShowtime-inner{
+    position: relative;
+    padding: 32px;
+    width: 100%;
+    max-width: 640px;
+    background: linear-gradient( 135deg, #fc00ff, #00dbde);
+    background-image: linear-gradient( 150deg, #5a00ff 0%, #ff1ff7 100%, #ff1ff7 100%);
+    border-radius: 44px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 25px 45px rgb(0 0 0 / 10%);
+}
+
+.popupShowtime-inner .close-btn{
+    position: absolute;
+    top: 16px;
+    right: 16px;
+}
+
+/* FORM ANTDS */
+.popupShowtime .ant-form-item-label{
+    text-align: left;
+    white-space: normal;
+}
+
+.popupShowtime .ant-form{
+    transform: translateX(13%);
+}
+
+.popupShowtime .ant-form-item-label > label{
+    color: #fff;
+}
+
+    /* BUTTON CREATE TIME */
+.popupShowtime .createTime-btn{
+    background: rgba(255, 255, 255, 0.6);
+    border: solid 1px rgba(255, 255, 255, 0.3);
+    color: rgb(86, 20, 169);
+    font-weight: 800;
+    font-size: 20px;
+    padding: 0px 15px;
+    height: 42px;
+    border-radius: 10px;
+}
+
+/* INPUT ANTDS */
+.popupShowtime .ant-picker{
+    width: 100%;
+}
+
+.popupShowtime .ant-input-number{
+    width: 100%;
+}

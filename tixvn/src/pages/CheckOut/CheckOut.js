@@ -27,7 +27,7 @@ export default function CheckOut(props) {
         <div className="bgCOut">
             <div className="container-fluid">
                 <div className="row">
-                    <div className="col-9 mt-5">
+                    <div className="listSeat col-9 mt-5">
                         <div>
                             <div className="d-flex ml-4">
                                 <img src="https://s3img.vcdn.vn/123phim/2018/09/1721cfa98768f300c03792e25ceb0191.png" className="mt-4 mr-3" width="50" height="50" />
@@ -38,13 +38,12 @@ export default function CheckOut(props) {
                             </div>
                         </div>
                         <div className="text-center">
-                            <img src="https://tix.vn/app/assets/img/icons/screen.png" alt="..." />
+                            <img src="https://tix.vn/app/assets/img/icons/screen.png" className="screenCine" alt="..." />
                             <br />
                             {renderGhe()}
                         </div>
-
                     </div>
-                    <div className="col-3 mt-5">
+                    <div className="inForFilm col-3 mt-5">
                         <div className="text-success display-4 text-center"> 0Đ</div>
                         <hr />
                         <div className="thongTinPhim my-2 text-white">

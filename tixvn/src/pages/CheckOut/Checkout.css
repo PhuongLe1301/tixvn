@@ -33,3 +33,100 @@
     color: orange !important;
     background-color: papayawhip !important;
 }
+@media screen and (max-width: 1024px) {
+    .bgCOut{
+        height: 1100px;
+    }
+    .screenCine{
+        width: 570px;
+    }
+    .inForFilm {
+        padding-top: 40px;
+    }
+    .listSeat {
+        
+    }
+    .ghe {
+        width: 27px;
+        height: 25px;
+        margin: 5px;
+    }
+}
+@media screen and (max-width: 540px) {
+    .bgCOut{
+        height: 120%;
+    }
+    .screenCine{
+        width: 505px;
+    }
+    .inForFilm {
+        min-width: 100%;
+    }
+    .listSeat {
+        max-width: 100%;
+    }
+    .ghe {
+        width: 47px;
+        height: 35px;
+        margin: 5px;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    .bgCOut{
+        height: 120%;
+    }
+    .screenCine{
+        width: 380px;
+    }
+    .inForFilm {
+        min-width: 100%;
+    }
+    .listSeat {
+        max-width: 100%;
+    }
+    .ghe {
+        width: 33px;
+        height: 25px;
+        margin: 5px;
+    }
+}
+@media screen and (max-width: 375px) {
+    .bgCOut{
+        height: 120%;
+    }
+    .screenCine{
+        width: 330px;
+    }
+    .inForFilm {
+        min-width: 100%;
+    }
+    .listSeat {
+        max-width: 100%;
+    }
+    .ghe {
+        width: 27px;
+        height: 25px;
+        margin: 5px;
+    }
+}
+@media screen and (max-width: 320px) {
+    .bgCOut{
+        height: 120%;
+    }
+    .screenCine{
+        width: 250px;
+    }
+    .inForFilm {
+        min-width: 100%;
+    }
+    .listSeat {
+        max-width: 100%;
+    }
+    .ghe {
+        width: 20px;
+        height: 20px;
+        margin: 5px;
+        font-size: 12px;
+    }
+}

@@ -1,3 +1,6 @@
+.container {
+    overflow: hidden;
+}
 .detailGlass {
     color: #ecf0f1;
     border-radius: 8px;
@@ -34,10 +37,10 @@
     position: relative;
     display: none;
 }
-.activeDetail{
+.activeDetail {
     display: block;
 }
-.titleIF{
+.titleIF {
     display: flex;
     justify-content: center;
     padding-top: 50px;
@@ -45,11 +48,40 @@
 .tabs {
     cursor: pointer;
     margin-right: 20px;
-    transition: all .2s;
+    transition: all 0.2s;
 }
-.tabs:hover{
-    transform: translateY(-10px)
+.tabs:hover {
+    transform: translateY(-10px);
 }
-.active-tabs  {
-   color: #fb4226;
+.active-tabs {
+    color: #fb4226;
+}
+
+@media screen and (max-width: 1199px) {
+    .infoFilm {
+        display: none;
+    }
+}
+@media screen and (max-width: 1024px) {
+    .infoFilm {
+        display: none;
+    }
+}
+@media screen and (max-width: 540px) {
+    .rateCircle,
+    .topDetail {
+        display: none !important;
+    }
+    .imgPoster {
+        margin-left: 90px !important;
+    }
+}
+@media screen and (max-width: 488px) {
+    .rateCircle,
+    .topDetail {
+        display: none !important;
+    }
+    .imgPoster {
+        margin-left: 10px !important;
+    }
 }

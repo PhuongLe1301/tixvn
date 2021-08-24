@@ -11,6 +11,7 @@ import News from './pages/News/News';
 import Login from './pages/Login/Login';
 import AdminTemplate from './template/AdminTemplate/AdminTemplate';
 import ManageMovie from './pages/ManageMovie/ManageMovie';
+import ManageUser from './pages/ManageUser/ManageUser';
 
 export const history = createBrowserHistory();
 
@@ -27,6 +28,7 @@ function App() {
         <Route component={News} exact path="/news"/>
         {/* Admin  */}
         <AdminTemplate component={ManageMovie} exact path="/admin/quanlyphim" />
+        <AdminTemplate component={ManageUser} exact path="/admin/quanlynguoidung"/>
       </Switch>
     </Router>
   );

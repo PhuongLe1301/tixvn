@@ -7,42 +7,41 @@
   width: 100%;
   height: 783px;
 }
-.circleTop{
-   width: 200px;
-   height: 200px;
-    background-color: rgba(204, 82, 25, 0.5);
-    border-radius: 50%;
-    position: absolute;
-    left: 400px;
-    top: 30px;
-    animation: animate 5s linear infinite;
-    animation-delay: calc(-1s*var(--i));
+.circleTop {
+  width: 200px;
+  height: 200px;
+  background-color: rgba(204, 82, 25, 0.5);
+  border-radius: 50%;
+  position: absolute;
+  left: 400px;
+  top: 30px;
+  animation: animate 5s linear infinite;
+  animation-delay: calc(-1s * var(--i));
 }
-@keyframes animate{
-  0%,100%
-  {
+@keyframes animate {
+  0%,
+  100% {
     transform: translateY(-25px);
   }
-  50%
-  {
+  50% {
     transform: translateY(40px);
   }
 }
-.circleBot{
-    width: 150px;
-    height: 150px;
-    background-color: rgba(80, 31, 218, 0.5);
-    border-radius: 50%;
-    position: absolute;
-    right: 370px;
-    top: 550px;
-    animation: animate 5s linear infinite;
+.circleBot {
+  width: 150px;
+  height: 150px;
+  background-color: rgba(80, 31, 218, 0.5);
+  border-radius: 50%;
+  position: absolute;
+  right: 370px;
+  top: 550px;
+  animation: animate 5s linear infinite;
 }
 .registerGlass .input-field input {
   background-color: inherit;
 }
 .registerGlass .input-field input::placeholder {
-  color: #eee
+  color: #eee;
 }
 .registerGlass {
   color: #ecf0f1;
@@ -57,4 +56,76 @@
 }
 .btn {
   border-radius: 10px;
+}
+@media screen and (max-width: 1024px) {
+  .registerBG {
+    width: 146%;
+    height: 1727px;
+  }
+  .circleTop{
+    left: 630px;
+    top: 350px;
+  }
+  .circleBot{
+    left: 91px;
+    top: 929px;
+  }
+  .registerGlass {
+   left: 20%;
+   top: 37%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .registerBG {
+    width: 146%;
+    height: 1309px;
+  }
+  .circleTop{
+    left: 555px;
+    top: 200px;
+  }
+  .circleBot{
+    left: 20px;
+    top: 700px;
+  }
+  .registerGlass {
+   left: 20%;
+   top: 37%;
+  }
+}
+@media screen and (max-width: 414px) {
+  .registerBG {
+    width: 146%;
+    height: 1200px;
+  }
+  .circleBot{
+    left: 20px;
+    top: 700px;
+  }
+  .registerGlass {
+   left: 20%;
+   top: 37%;
+  }
+}
+
+
+@media screen and (max-width:375px) {
+  .registerBG {
+    width: 166%;
+    height: 1227px;
+  }
+  .circleBot{
+    left: 20px;
+    top: 700px;
+  }
+  .registerGlass {
+   left: 20%;
+   top: 37%;
+  }
+}
+@media screen and (max-width: 320px) {
+  .registerBG {
+    width: 188%;
+    height: 1066px;
+  }
 }

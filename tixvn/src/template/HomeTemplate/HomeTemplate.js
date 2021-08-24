@@ -8,7 +8,7 @@ export default function HomeTemplate(props) {
             return <div>
                 <Header />
                 <props.component {...propsRoute} />
-                <Footer/>
+                {/* <Footer/> */}
             </div>
         }} />
 

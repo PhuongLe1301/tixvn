@@ -21,6 +21,7 @@ export default function Detail(props) {
     const { thongTinChiTiet } = useSelector(state => state.FilmReducer)
     console.log("chitiet", thongTinChiTiet)
     const [buttonPopup, setButtonPopup] = useState(false);
+    console.log('data',props)
     useEffect(() => {
         const action = getFilmDetailAction(props.match.params.postId);
         dispatch(action)
@@ -39,13 +40,13 @@ export default function Detail(props) {
                 blur={20}
                 borderRadius={0}
             >
-                <div className="d-flex pl-3">
+                <div className="topDetail d-flex pl-3">
                     <NavLink className="backMenu" to="/">Trang Chủ</NavLink>
                     <h2 className="filmTitle">{thongTinChiTiet?.tenPhim}</h2>
                 </div>
                 <div className="container pt-3">
                     <div className="row d-flex" style={{ alignItems: 'center' }}>
-                        <div className="col-3 ml-5">
+                        <div className="imgPoster col-3 ml-5">
                             <img style={{ width: 250, height: 350 }} src={thongTinChiTiet?.hinhAnh} />
                         </div>
                         <div className="col-4 infoFilm d-flex">
@@ -61,7 +62,7 @@ export default function Detail(props) {
                                 </Trailer>
                             </ul>
                         </div>
-                        <div className="col-4">
+                        <div className="col-4 rateCircle">
                             <h5><Rate allowHalf value={thongTinChiTiet.danhGia / 2} style={{ color: 'green' }} /></h5>
                             <div className={`c100 p${thongTinChiTiet.danhGia * 10} green`}>
                                 <span>{thongTinChiTiet?.danhGia * 10}%</span>
