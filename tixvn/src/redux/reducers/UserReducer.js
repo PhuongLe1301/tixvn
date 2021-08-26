@@ -17,7 +17,7 @@ export const UserReducer = (state = stateDefault, action) => {
         case DANG_NHAP_ACTION:{
             const {thongTinDangNhap} = action;
             localStorage.setItem(USER_LOGIN, JSON.stringify(thongTinDangNhap));
-            // localStorage.setItem(ACCESSTOKEN, thongTinDangNhap.accessToken);
+            localStorage.setItem(ACCESSTOKEN, thongTinDangNhap.accessToken);
 
             return {...state, userLogin:thongTinDangNhap}
         }

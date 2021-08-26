@@ -25,7 +25,7 @@ export const dangNhapAction = (thongTinDangNhap) => {
         try{
             const result = await quanLyNguoiDungService.dangNhap(thongTinDangNhap);
 
-            if(result.data.status === 200){
+            if(result.data.statusCode === 200){
                 dispatch({
                     type: DANG_NHAP_ACTION,
                     thongTinDangNhap : result.data.content
@@ -33,8 +33,8 @@ export const dangNhapAction = (thongTinDangNhap) => {
             }
 
             console.log('result', result);
-        }catch (error) {
-            console.log('error', error.response.data)   ;
+        }catch (errors) {
+            console.log('errors', errors.response?.data)   ;
         }
     }
 }

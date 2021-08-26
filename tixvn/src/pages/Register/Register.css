@@ -1,42 +1,3 @@
-.registerBG {
-  overflow: hidden;
-  background: linear-gradient(135deg, #00c3ff, #eeef1c);
-  background: linear-gradient(135deg, #fc00ff, #00dbde);
-  background-image: linear-gradient(135deg, #ff00ba 0%, #fae713 100%);
-  background-image: linear-gradient(150deg, #5a00ff 0%, #ff1ff7 100%, #ff1ff7 100%);
-  width: 100%;
-  height: 100vh;
-}
-.circleTop {
-  width: 200px;
-  height: 200px;
-  background-color: rgba(204, 82, 25, 0.5);
-  border-radius: 50%;
-  position: absolute;
-  left: 400px;
-  top: 30px;
-  animation: animate 5s linear infinite;
-  animation-delay: calc(-1s * var(--i));
-}
-@keyframes animate {
-  0%,
-  100% {
-    transform: translateY(-25px);
-  }
-  50% {
-    transform: translateY(40px);
-  }
-}
-.circleBot {
-  width: 150px;
-  height: 150px;
-  background-color: rgba(80, 31, 218, 0.5);
-  border-radius: 50%;
-  position: absolute;
-  right: 370px;
-  top: 550px;
-  animation: animate 5s linear infinite;
-}
 .registerGlass .input-field input {
   background-color: inherit;
 }
@@ -57,75 +18,52 @@
 .btn {
   border-radius: 10px;
 }
+
+.registerGlass .btn-question a{
+  text-decoration: underline;
+}
+
 @media screen and (max-width: 1024px) {
-  /* .registerBG {
-    width: 146%;
-    height: 1727px;
-  } */
-  .circleTop{
-    left: 630px;
-    top: 350px;
-  }
-  .circleBot{
-    left: 91px;
-    top: 929px;
-  }
   .registerGlass {
    left: 26%;
-   top: 33%;
+   top: 27%;
+   transform: scale(1.5);
   }
 }
+
+@media screen and (min-width: 769px) and (max-width:815px) {
+  .registerGlass{
+    left: 19%;
+    top: 27%;
+  }
+}
+
 @media screen and (max-width: 768px) {
-  /* .registerBG {
-    width: 146%;
-    height: 1309px;
-  } */
-  .circleTop{
-    left: 555px;
-    top: 200px;
+  .registerGlass {
+    left: 19%;
+    top: 20%;
   }
-  .circleBot{
-    left: 20px;
-    top: 700px;
-  }
-  /* .registerGlass {
-   left: 20%;
-   top: 37%;
-  } */
-}
-@media screen and (max-width: 414px) {
-  /* .registerBG {
-    width: 146%;
-    height: 1200px;
-  } */
-  .circleBot{
-    left: 20px;
-    top: 700px;
-  }
-  /* .registerGlass {
-   left: 20%;
-   top: 37%;
-  } */
 }
 
-
-@media screen and (max-width:375px) {
-  /* .registerBG {
-    width: 166%;
-    height: 1227px;
-  } */
-  .circleBot{
-    left: 20px;
-    top: 700px;
+@media screen and (max-width: 745px) {
+  .registerGlass{
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    padding: 0;
+    border-radius: 0;
+    transform: none;
   }
-  /* .registerGlass {
-   left: 20%;
-   top: 37%;
-  } */
+
+  .registerGlass form{
+    transform: translateY(23%);
+    padding: 0px 60px;
+  }
 }
+
 @media screen and (max-width: 320px) {
-  .registerBG {
-    width: 188%;
-    height: 1066px;
+  .registerGlass form{
+    transform: translateY(6%);
   }
 }
