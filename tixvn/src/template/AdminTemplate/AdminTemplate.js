@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { NavLink, Route } from 'react-router-dom';
+import { NavLink, Redirect, Route } from 'react-router-dom';
 import './AdminTemplate.css';
 import { Layout, Menu } from 'antd';
 import {
@@ -10,11 +10,16 @@ import {
   CaretDownFilled,
   RightOutlined
 } from '@ant-design/icons';
+import { useSelector } from 'react-redux';
+import { USER_LOGIN } from '../../ultil/setting';
 
 const { Header, Sider, Content } = Layout;
 const { SubMenu } = Menu;
 
 export default function AdminTemplate(props) {
+
+  const {userLogin} = useSelector( state => state.UserReducer);
+  console.log('userLogin', userLogin);
 
   const [state, setState] = useState({
     collapsed: false,
@@ -33,6 +38,16 @@ export default function AdminTemplate(props) {
   };
 
   const { current } = state;
+
+  if(!localStorage.getItem(USER_LOGIN)){
+    alert('Bạn không có quyền truy cập vào trang này !');
+    return <Redirect to = '/' />
+  }
+
+  if(userLogin.maLoaiNguoiDung !== 'QuanTri') {
+    alert('Bạn không có quyền truy cập vào trang này !');
+    return <Redirect to = '/' />
+  }
 
   return (
     <Route path={props.path} exact render={(propsRoute) => {

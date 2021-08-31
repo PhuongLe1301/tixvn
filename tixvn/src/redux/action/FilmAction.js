@@ -1,23 +1,23 @@
 import axios from "axios";
+import { manageMovieService } from "../../components/services/MangageMovieService";
 import { SET_CHI_TIET_PHONG_VE, SET_FILMS, SET_FILM_DETAIL } from "../../ultil/setting";
+import { SET_LIST_MOVIE } from './types/FilmType';
 
-export const getApiFilmAction = (maNhom) => {
+export const getApiMovieAction = () =>{
     return async (dispatch) => {
         try {
-            const result = await axios({
-                url: `http://movieapi.cyberlearn.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=${maNhom}`,
-                method: 'GET'
-            })
-            const action = {
-                type: SET_FILMS,
+            const result = await manageMovieService.getMovieList();
+
+            dispatch({
+                type: SET_LIST_MOVIE,
                 dataFilms: result.data.content
-            }
-            dispatch(action)
-        } catch (errors) {
-            console.log('errors', errors.data)
+            })
+        }catch(errors){
+            console.log('errors', errors);
         }
     }
 }
+
 export const getFilmDetailAction = (maPhim) => {
     return async (dispatch) => {
         try {

@@ -1,7 +1,8 @@
-import { SET_CHI_TIET_PHONG_VE, SET_FILMS, SET_FILM_DETAIL } from "../../ultil/setting";
+import { SET_CHI_TIET_PHONG_VE, SET_FILM_DETAIL } from "../../ultil/setting";
+import { SET_LIST_MOVIE } from "../action/types/FilmType";
 
 const stateDefault = {
-    arrFilm: [{ maPhim: 1, tenPhim: 'ABC', hinhAnh: 'https://picsum.photos/200/200' }],
+    arrFilm: [{},],
     thongTinChiTiet: {},
     chiTietPhongVe:{
         content:[]
@@ -10,7 +11,7 @@ const stateDefault = {
 
 export const FilmReducer = (state = stateDefault, action) => {
     switch (action.type) {
-        case SET_FILMS: {
+        case SET_LIST_MOVIE: {
             state.arrFilm = action.dataFilms
             return { ...state };
         }

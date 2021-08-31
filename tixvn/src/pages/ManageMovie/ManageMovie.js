@@ -3,7 +3,7 @@ import { Table, Tag, Space, Input, Button } from 'antd';
 import { AudioOutlined } from '@ant-design/icons';
 import './ManageMovie.css';
 import PopupShowtime from './PopupShowtime';
-import AddMovie from './AddMovie';
+import AddMovie from './AddMovie/AddMovie';
 import EditMovie from './EditMovie';
 
 
@@ -30,32 +30,61 @@ export default function ManageMovie() {
     {
       title: 'Mã phim',
       dataIndex: 'maphim',
-      key: 'maphim',
+      // key: 'maphim',
+      defaultSortOrder: 'descend',
+      sorter: (a, b) => a.maphim - b.maphim,
     },
     {
       title: 'Tên phim',
       dataIndex: 'tenphim',
-      key: 'tenphim',
+      // key: 'tenphim',
+      filters: [
+        {
+          text: 'Joe',
+          value: 'Joe',
+        },
+        {
+          text: 'Jim',
+          value: 'Jim',
+        },
+        {
+          text: 'Submenu',
+          value: 'Submenu',
+          children: [
+            {
+              text: 'Green',
+              value: 'Green',
+            },
+            {
+              text: 'Black',
+              value: 'Black',
+            },
+          ],
+        },
+      ],
+      onFilter: (value, record) => record.tenphim.indexOf(value) === 0,
+      sorter: (a, b) => a.tenphim.length - b.tenphim.length,
+      sortDirections: ['descend'],
     },
     {
       title: 'Hình ảnh',
       dataIndex: 'hinhanh',
-      key: 'hinhanh',
+      // key: 'hinhanh',
       render: text => <img src={text} alt={text} width={80} height={95}/>,
     },
     {
       title: 'Mô tả',
       dataIndex: 'mota',
-      key: 'mota',
+      // key: 'mota',
     },
     {
       title: 'Mã nhóm',
       dataIndex: 'manhom',
-      key: 'manhom',
+      // key: 'manhom',
     },
     {
       title: 'Ngày khởi chiếu',
-      key: 'ngaykhoichieu',
+      // key: 'ngaykhoichieu',
       dataIndex: 'ngaykhoichieu',
       render: ngaykhoichieu => (
         <>
@@ -75,7 +104,7 @@ export default function ManageMovie() {
     },
     {
       title: 'Action',
-      key: 'action',
+      // key: 'action',
       render: (text, record) => (
         <Space size="middle">
           {/* <a>Invite {record.name}</a> */}
@@ -113,6 +142,10 @@ export default function ManageMovie() {
     }
   ];
 
+  function onChange(pagination, filters, sorter, extra) {
+    console.log('params', pagination, filters, sorter, extra);
+  }
+
   return (
     <div className="manageMovie">
       <button type="submit" className="btn btn-success ml-3 btnManageMovie addMovie-btn" onClick={()=> setButtonPopupAdd(true)}>Thêm phim</button>
@@ -122,7 +155,7 @@ export default function ManageMovie() {
           <Search placeholder="input search text" allowClear onSearch={onSearch} style={{ width: '45vw' }} />
         </Space>,
       </div>
-      <Table className="ml-3 manageMovie-table" columns={columns} dataSource={data} />
+      <Table className="ml-3 manageMovie-table" columns={columns} dataSource={data} onChange={onChange} />
       
     </div>
   )

@@ -147,37 +147,24 @@
     font-weight: 600;
     transition: all .2s;
 }
-/* OWL CAROUSEL */
-.recommendMovie .owl-carousel .owl-next, .owl-prev{
-    top: 46%;
-    background-color: transparent !important;
-    background-size: contain !important;
-    width: 50px;
-    height: 50px;
-    position: absolute;
-}
 
-.recommendMovie .owl-carousel .owl-prev{
-    left: 0%;
-    background-image: url("https://tix.vn/app/assets/img/icons/back-session.png") !important;
-}
-
-.recommendMovie .owl-carousel .owl-next{
-    right: 2%;
-    background-image: url("https://tix.vn/app/assets/img/icons/next-session.png") !important;
-}
-
-.recommendMovie .owl-carousel .owl-prev span, .owl-next span{
-    display: none;
-}
 
 /* RECOMMEND MOVIE ITEM */
+.recommendMovie .recommendMovie_item{
+    color: black;
+}
+
 .recommendMovie .recommendMovie_item .movie-name{
     font-size: 16px;
 }
 
+.recommendMovie_item .movie-img img{
+    height: 300px;
+    width: 210px;
+}
+
 .recommendMovie_item .movie-img .movie-rate{
-    transform: translate(9.2rem,-19.5rem);
+    transform: translate(9rem,-18rem);
     z-index: 1;
     background-color: rgba(12,27,54,.8);
     width: 3.8rem;
@@ -197,9 +184,9 @@
 
 .recommendMovie .movie-img .movie-overlay{
     position: absolute;
-    top: 0;
-    width: 100%;
-    height: 100%;
+    top: 23px;
+    width: 75%;
+    height: 93%;
     background: linear-gradient(to top, black, transparent);
 }
 

@@ -11,7 +11,7 @@ export default function Header() {
                     <img src="https:tix.vn/app/assets/img/icons/web-logo.png" style={{ width: 50, height: 50 }} alt="https:tix.vn/app/assets/img/icons/web-logo.png"/>
                 </div>
                 <div className="col-4">
-                    <div className="center">
+                    <div className="navbarHeader_content">
                         <NavLink  className="nav-link" to="/">Home</NavLink>
                         <NavLink  className="nav-link" to="#theaterList">Detail</NavLink>
                         <a href="#theaterList">abc</a>

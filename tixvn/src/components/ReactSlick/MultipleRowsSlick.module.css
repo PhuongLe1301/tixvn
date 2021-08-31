@@ -1,0 +1,8 @@
+.slick-prev:before{
+    content: url(https://tix.vn/app/assets/img/icons/back-session.png) !important;
+}
+
+.slick-next:before{
+    content: url(https://tix.vn/app/assets/img/icons/next-session.png) !important;
+}
+
