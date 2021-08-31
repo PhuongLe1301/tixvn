@@ -2,12 +2,14 @@ import React, { useState } from 'react'
 import './Register.css'
 import { useFormik } from 'formik'
 import * as Yup from 'yup'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import 'react-datepicker/dist/react-datepicker.css'
 import { dangKyAction } from '../../redux/action/UserAction'
 import { NavLink } from 'react-router-dom'
 export default function Register(props) {
     const dispatch = useDispatch()
+    const { userRegister } = useSelector(state => state.UserReducer);
+    console.log('userRegister', userRegister);
     const formik = useFormik({
         initialValues: {
             taiKhoan: '',
@@ -24,8 +26,9 @@ export default function Register(props) {
             email: Yup.string().email('Email không hợp lệ').required('Email không được bỏ trống'),
             soDt: Yup.string().matches(/^[0-9]+$/, 'Số điện thoại tất cả là số'),
         }),
-        onSubmit: (value) => {
+        onSubmit: value => {
             const action = dangKyAction(value)
+            console.log('value',value)
             dispatch(action);
         }
     })

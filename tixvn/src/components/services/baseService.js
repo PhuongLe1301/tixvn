@@ -5,7 +5,6 @@ export class baseService {
     constructor(){
 
     }
-
     get = (url) =>{
         let promise  =  axios ({
             url:`${DOMAIN}${url}`,
@@ -16,7 +15,6 @@ export class baseService {
         });
         return promise;
     }
-
     post = (url,data) => {
         let promise  =  axios ({
             url:`${DOMAIN}${url}`,

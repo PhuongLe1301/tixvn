@@ -33,18 +33,49 @@
     color: orange !important;
     background-color: papayawhip !important;
 }
+
+
+.table thead th {
+    border-bottom: 0;
+}
+.table td,
+.table th {
+    padding: 0;
+    padding-left: 75px;
+    border-top: 0;
+}
+.ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+    margin-left: 10px;
+}
+.cardDesign {
+    display: flex;
+    justify-content: center;
+
+    flex-wrap: wrap;
+}
+.cardCOut {
+    width: 140px;
+    height: auto;
+    margin: 20px;
+    border-radius: 15px;
+    border: 1px solid black;
+}
+.card-imageCout {
+    height: 150px;
+    width: 250px;
+    margin-bottom: 15px;
+}
 @media screen and (max-width: 1024px) {
-    .bgCOut{
+    .bgCOut {
         height: 1100px;
     }
-    .screenCine{
+    .screenCine {
         width: 570px;
     }
     .inForFilm {
         padding-top: 40px;
     }
     .listSeat {
-        
     }
     .ghe {
         width: 27px;
@@ -53,10 +84,10 @@
     }
 }
 @media screen and (max-width: 540px) {
-    .bgCOut{
+    .bgCOut {
         height: 120%;
     }
-    .screenCine{
+    .screenCine {
         width: 505px;
     }
     .inForFilm {
@@ -73,10 +104,10 @@
 }
 
 @media screen and (max-width: 414px) {
-    .bgCOut{
+    .bgCOut {
         height: 120%;
     }
-    .screenCine{
+    .screenCine {
         width: 380px;
     }
     .inForFilm {
@@ -92,10 +123,10 @@
     }
 }
 @media screen and (max-width: 375px) {
-    .bgCOut{
+    .bgCOut {
         height: 120%;
     }
-    .screenCine{
+    .screenCine {
         width: 330px;
     }
     .inForFilm {
@@ -111,10 +142,10 @@
     }
 }
 @media screen and (max-width: 320px) {
-    .bgCOut{
+    .bgCOut {
         height: 120%;
     }
-    .screenCine{
+    .screenCine {
         width: 250px;
     }
     .inForFilm {
