@@ -16,7 +16,7 @@ export const dangKyAction = (thongTinNguoiDung) => {
                     thongTinNguoiDung: result.data.content
                 })
             }
-            history.push('/');
+            history.goBack();
             console.log('result', result);
         }
         catch (errors) {
@@ -34,7 +34,7 @@ export const dangNhapAction = (thongTinDangNhap) => {
                     thongTinDangNhap: result.data.content
                 })
             }
-            history.goBack()
+            history.push('/');
             console.log('result', result);
         } catch (errors) {
             console.log('errors', errors.response?.data);

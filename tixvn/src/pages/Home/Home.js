@@ -9,18 +9,11 @@ import MultipleRows from '../../components/ReactSlick/MultipleRowsSlick';
 export default function Home() {
     const dispatch = useDispatch()
     const arrFilm = useSelector(state => state.FilmReducer.arrFilm);
-    console.log('thong tin phim', arrFilm);
 
     useEffect(() => {
         const action = getApiMovieAction();
         dispatch(action);
     }, [])
-
-    // const renderFilm = () => {
-    //     return arrFilm?.map((film, index) => {
-    //         return <Movie key={index} movie= {film}/>
-    //     })
-    // }
 
     return (
         <div>
@@ -100,10 +93,6 @@ export default function Home() {
                 </div>
             </div>
             <div className="container recommendMovie">
-                <div className="col-12 text-center btn_recommnendMovie">
-                    <a className="mr-5 active">Đang Chiếu</a>
-                    <a className="inactive">Sắp Chiếu</a>
-                </div>
                 <MultipleRows arrFilm={arrFilm}/>
             </div>
         </div>

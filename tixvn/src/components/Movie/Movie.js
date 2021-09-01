@@ -19,7 +19,7 @@ export default function Movie(props) {
                     </div>
                 </div>
                 <div className="movie-overlay"></div>
-                <div className="movie-play text-white text-center w-100">
+                <div className="movie-play text-white text-center">
                     <i class="fa fa-play border border-white rounded-circle"></i>
                 </div>
             </div>

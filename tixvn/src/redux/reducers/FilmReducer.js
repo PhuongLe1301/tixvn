@@ -1,8 +1,11 @@
 import { CHANGE_TAB_ACTIVE, CHUYEN_TAB, DAT_VE, DAT_VE_HOAN_TAT, SET_CHI_TIET_PHONG_VE, SET_FILM_DETAIL  } from "../../ultil/setting";
-import { SET_LIST_MOVIE } from "../action/types/FilmType";
+import { SET_LIST_MOVIE, SET_MOVIE_DANG_CHIEU, SET_MOVIE_SAP_CHIEU } from "../action/types/FilmType";
 
 const stateDefault = {
     arrFilm: [{},],
+    dangChieu: true,
+    sapChieu: true,
+    arrFilmDefault: [],
     thongTinChiTiet: {},
     chiTietPhongVe: {
         content: []
@@ -15,8 +18,19 @@ const stateDefault = {
 export const FilmReducer = (state = stateDefault, action) => {
     switch (action.type) {
         case SET_LIST_MOVIE: {
-            state.arrFilm = action.dataFilms
-            return { ...state };
+            state.arrFilm = action.dataFilms;
+            state.arrFilmDefault = state.arrFilm;
+            return { ...state }
+        }
+        case SET_MOVIE_DANG_CHIEU: {
+            state.dangChieu = !state.dangChieu;
+            state.arrFilm = state.arrFilmDefault.filter(movie => movie.dangChieu === state.dangChieu);
+            return { ...state }
+        }
+        case SET_MOVIE_SAP_CHIEU: {
+            state.sapChieu = !state.sapChieu;
+            state.arrFilm = state.arrFilmDefault.filter(movie => movie.sapChieu === state.sapChieu);
+            return {... state }
         }
         case SET_FILM_DETAIL: {
             state.thongTinChiTiet = action.thongTinChiTiet

@@ -6,3 +6,20 @@
     content: url(https://tix.vn/app/assets/img/icons/next-session.png) !important;
 }
 
+.activeMovie{
+    color: #fa5238 !important;
+    font-size: 24px;
+}
+
+.activeMovie:hover{
+    color: #fa5238 !important;
+}
+
+.inactiveMovie{
+    font-size: 20px;
+}
+
+.inactiveMovie:hover{
+    font-size: 24px;
+}
+
