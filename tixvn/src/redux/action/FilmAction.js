@@ -2,7 +2,7 @@ import axios from "axios";
 import { history } from "../../App";
 import { manageMovieService } from "../../components/services/MangageMovieService";
 import { SET_CHI_TIET_PHONG_VE, SET_FILMS, SET_FILM_DETAIL } from "../../ultil/setting";
-import { SET_LIST_MOVIE } from './types/FilmType';
+import { SET_INFO_MOVIE, SET_LIST_MOVIE } from './types/FilmType';
 
 export const getApiMovieAction = () =>{
     return async (dispatch) => {
@@ -25,8 +25,54 @@ export const addMovieUploadImageAction = (formData) => {
 
             const result = await manageMovieService.addMovieUploadImage(formData);
             alert('Thêm phim thành công!');
-            console.log('result', result.data.content);
-            history.push('/admin/quanlyphim');
+            // console.log('result', result.data.content);
+
+        }catch(errors){
+            console.log('errors', errors);
+        }
+    }
+}
+
+export const getInfoMovieAction = (maPhim) => {
+    return async (dispatch) => {
+        try {
+            const result = await manageMovieService.getInfoMovie(maPhim);
+
+            // console.log('result',result.data.content);
+
+            dispatch({
+                type: SET_INFO_MOVIE,
+                thongTinPhim: result.data.content
+            })
+        }catch(errors){
+            console.log('errors', errors);
+        }
+    }
+}
+
+export const updateMovieUploadAction = (formData) => {
+    return async (dispatch) => {
+        try {
+
+            const result = await manageMovieService.updateMovieUpload(formData);
+            alert('Cập nhật phim thành công!');
+            // console.log('result', result.data.content);
+
+            dispatch(getApiMovieAction());
+
+        }catch(errors){
+            console.log('errors', errors);
+        }
+    }
+}
+
+export const deteleteMovieAction = (maPhim) => {
+    return async (dispatch) => {
+        try {
+
+            const result = await manageMovieService.deleteMovie(maPhim);
+            alert('Xóa phim thành công!');
+            dispatch(getApiMovieAction());
 
         }catch(errors){
             console.log('errors', errors);
@@ -68,3 +114,4 @@ export const getDetailAction = (maLichChieu) => {
         }
     }
 }
+

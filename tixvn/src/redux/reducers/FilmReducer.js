@@ -1,5 +1,5 @@
 import { CHANGE_TAB_ACTIVE, CHUYEN_TAB, DAT_VE, DAT_VE_HOAN_TAT, SET_CHI_TIET_PHONG_VE, SET_FILM_DETAIL  } from "../../ultil/setting";
-import { SET_LIST_MOVIE, SET_MOVIE_DANG_CHIEU, SET_MOVIE_SAP_CHIEU } from "../action/types/FilmType";
+import { SET_INFO_MOVIE, SET_LIST_MOVIE, SET_MOVIE_DANG_CHIEU, SET_MOVIE_SAP_CHIEU } from "../action/types/FilmType";
 
 const stateDefault = {
     arrFilm: [{},],
@@ -11,7 +11,8 @@ const stateDefault = {
         content: []
     },
     danhSachGheDangDat: [],
-    tabActive: "1"
+    tabActive: "1",
+    thongTinPhim:{}
 }
 
 export const FilmReducer = (state = stateDefault, action) => {
@@ -30,6 +31,10 @@ export const FilmReducer = (state = stateDefault, action) => {
             state.sapChieu = !state.sapChieu;
             state.arrFilm = state.arrFilmDefault.filter(movie => movie.sapChieu === state.sapChieu);
             return {... state }
+        }
+        case SET_INFO_MOVIE:{
+            state.thongTinPhim = action.thongTinPhim;
+            return {...state}
         }
         case SET_FILM_DETAIL: {
             state.thongTinChiTiet = action.thongTinChiTiet

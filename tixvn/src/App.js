@@ -15,6 +15,7 @@ import ManageUser from './pages/ManageUser/ManageUser';
 import UserTemplate from './template/UserTemplate/UserTemplate';
 import CheckoutTemaplate from './template/CheckoutTemplate/CheckoutTemaplate'
 import Loading from './components/Loading/Loading';
+import AddMovie from './pages/ManageMovie/AddMovie/AddMovie';
 
 export const history = createBrowserHistory();
 

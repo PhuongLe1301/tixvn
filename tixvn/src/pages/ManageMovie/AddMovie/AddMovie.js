@@ -10,7 +10,7 @@ import { useDispatch } from 'react-redux';
 import { addMovieUploadImageAction } from '../../../redux/action/FilmAction';
 import { GROUPID } from '../../../ultil/setting';
 
-function AddMovie(props) {
+const AddMovie = (props) => {
 
     const [imgSrc, setImgSrc] = useState('');
     const dispatch = useDispatch()

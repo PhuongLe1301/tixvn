@@ -1,3 +1,5 @@
 export const SET_LIST_MOVIE = 'SET_LIST_MOVIE';
 export const SET_MOVIE_DANG_CHIEU = 'SET_MOVIE_DANG_CHIEU';
 export const SET_MOVIE_SAP_CHIEU = 'SET_MOVIE_SAP_CHIEU';
+
+export const SET_INFO_MOVIE = 'SET_INFO_MOVIE';

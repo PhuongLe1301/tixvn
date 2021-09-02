@@ -14,6 +14,18 @@ export class MangageMovieService extends baseService {
     addMovieUploadImage = (formData) => {
         return this.post(`/api/QuanLyPhim/ThemPhimUploadHinh`, formData);
     }
+
+    getInfoMovie = (maPhim) => {
+        return this.get(`/api/QuanLyPhim/LayThongTinPhim?MaPhim=${maPhim}`);
+    }
+
+    updateMovieUpload = (formData) => {
+        return this.post(`/api/QuanLyPhim/CapNhatPhimUpload`, formData);
+    }
+
+    deleteMovie = (maPhim) => {
+        return this.delete(`/api/QuanLyPhim/XoaPhim?MaPhim=${maPhim}`);
+    }
 }
 
 export const manageMovieService = new MangageMovieService();
