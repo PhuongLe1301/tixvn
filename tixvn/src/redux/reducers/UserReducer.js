@@ -22,7 +22,6 @@ export const UserReducer = (state = stateDefault, action) => {
             const { thongTinNguoiDung } = action;
             return { ...state, userRegister: thongTinNguoiDung }
         }
-
         case DANG_NHAP_ACTION: {
             const { thongTinDangNhap } = action;
             localStorage.setItem(USER_LOGIN, JSON.stringify(thongTinDangNhap));

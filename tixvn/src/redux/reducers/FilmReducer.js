@@ -11,7 +11,6 @@ const stateDefault = {
         content: []
     },
     danhSachGheDangDat: [],
-    danhSachGheKhachDat:[{maGhe:47401},{maGhe:47402}],
     tabActive: "1"
 }
 

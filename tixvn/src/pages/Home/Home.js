@@ -9,7 +9,6 @@ import MultipleRows from '../../components/ReactSlick/MultipleRowsSlick';
 export default function Home() {
     const dispatch = useDispatch()
     const arrFilm = useSelector(state => state.FilmReducer.arrFilm);
-
     useEffect(() => {
         const action = getApiMovieAction();
         dispatch(action);

@@ -8,10 +8,9 @@ import { datVeAction, layThongTinNguoiDungAction } from '../../redux/action/User
 import { Tabs } from 'antd';
 import moment from 'moment';
 function CheckOut(props) {
-    const { chiTietPhongVe, danhSachGheDangDat, danhSachGheKhachDat } = useSelector(state => state.FilmReducer)
+    const { chiTietPhongVe, danhSachGheDangDat } = useSelector(state => state.FilmReducer)
     const { thongTinPhim, danhSachGhe } = chiTietPhongVe;
     const { userLogin } = useSelector(state => state.UserReducer);
-    console.log('user', userLogin)
     const dispatch = useDispatch()
     useEffect(() => {
         let maLichChieu = props.match.params.id;
@@ -71,7 +70,6 @@ function CheckOut(props) {
                                         <th>Ghế vip</th>
                                         <th>Ghế đã được đặt</th>
                                         <th>Ghế mình đặt</th>
-                                        <th>Ghế khách đang đặt</th>
                                     </tr>
                                 </thead>
                                 <tbody>
