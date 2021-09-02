@@ -1,15 +1,26 @@
-import React, {useState} from 'react';
+import React, {Fragment, useEffect, useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
 import { Table, Tag, Space, Input, Button } from 'antd';
 import { AudioOutlined } from '@ant-design/icons';
 import './ManageMovie.css';
 import PopupShowtime from './PopupShowtime';
 import AddMovie from './AddMovie/AddMovie';
 import EditMovie from './EditMovie';
+import { getApiMovieAction } from '../../redux/action/FilmAction';
 
 
 const { Search } = Input;
 
 export default function ManageMovie() {
+
+  const {arrFilmDefault} = useSelector(state => state.FilmReducer);
+  console.log('arrFilmDefault', arrFilmDefault);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getApiMovieAction());
+  },[])
 
   const [buttonPopup, setButtonPopup] = useState(false);
   const [buttonPopupAdd, setButtonPopupAdd] = useState(false);
@@ -29,118 +40,74 @@ export default function ManageMovie() {
   const columns = [
     {
       title: 'Mã phim',
-      dataIndex: 'maphim',
-      // key: 'maphim',
+      dataIndex: 'maPhim',
       defaultSortOrder: 'descend',
-      sorter: (a, b) => a.maphim - b.maphim,
+      sorter: (a, b) => a.maPhim - b.maPhim,
+      width: '8%',
+      align: 'center'
     },
     {
       title: 'Tên phim',
-      dataIndex: 'tenphim',
-      // key: 'tenphim',
-      filters: [
-        {
-          text: 'Joe',
-          value: 'Joe',
-        },
-        {
-          text: 'Jim',
-          value: 'Jim',
-        },
-        {
-          text: 'Submenu',
-          value: 'Submenu',
-          children: [
-            {
-              text: 'Green',
-              value: 'Green',
-            },
-            {
-              text: 'Black',
-              value: 'Black',
-            },
-          ],
-        },
-      ],
-      onFilter: (value, record) => record.tenphim.indexOf(value) === 0,
-      sorter: (a, b) => a.tenphim.length - b.tenphim.length,
-      sortDirections: ['descend'],
+      dataIndex: 'tenPhim',
+      sorter: (a, b) => {
+        let tenPhimA = a.tenPhim.toLowerCase().trim();
+        let tenPhimB = b.tenPhim.toLowerCase().trim();
+        
+        if(tenPhimA > tenPhimB){
+          return 1;
+        }
+        return -1; 
+      },
+      sortDirections: ['descend','ascend'],
+      width: '15%',
     },
     {
       title: 'Hình ảnh',
-      dataIndex: 'hinhanh',
-      // key: 'hinhanh',
-      render: text => <img src={text} alt={text} width={80} height={95}/>,
+      dataIndex: 'hinhAnh',
+      render: (text, movie, index) => {return <Fragment>
+        <img src={movie.hinhAnh} alt={movie.tenPhim} width={80} height={95} onError={(e) => {e.target.onError = null; e.target.src=`https://picsum.photos/id/${index}/80/95`}}/>
+      </Fragment>},
+      width: '10%',
     },
     {
       title: 'Mô tả',
-      dataIndex: 'mota',
-      // key: 'mota',
+      dataIndex: 'moTa',
+      render: (text, movie) => { return <Fragment>
+        {movie.moTa.length > 50 ? movie.moTa.substr(0, 50) + '...' : movie.moTa}
+      </Fragment>},
+      width: '20%',
     },
     {
       title: 'Mã nhóm',
-      dataIndex: 'manhom',
-      // key: 'manhom',
+      dataIndex: 'maNhom',
+      width: '7%',
+      align: 'center'
     },
     {
       title: 'Ngày khởi chiếu',
-      // key: 'ngaykhoichieu',
-      dataIndex: 'ngaykhoichieu',
-      render: ngaykhoichieu => (
-        <>
-          {ngaykhoichieu.map(tag => {
-            let color = tag.length > 5 ? 'geekblue' : 'green';
-            if (tag === 'loser') {
-              color = 'volcano';
-            }
-            return (
-              <Tag color={color} key={tag}>
-                {tag.toUpperCase()}
-              </Tag>
-            );
-          })}
-        </>
-      ),
+      dataIndex: 'ngayKhoiChieu',
+      width: '15%',
     },
     {
-      title: 'Action',
-      // key: 'action',
-      render: (text, record) => (
-        <Space size="middle">
-          {/* <a>Invite {record.name}</a> */}
+      title: 'Hành động',
+      render: (text, movie) => { return <Space size="middle">
           <Button className="btnManageMovie action-btn" onClick={()=> setButtonPopup(true)}>Tạo lịch chiếu</Button>
           <PopupShowtime trigger={buttonPopup} setTrigger={setButtonPopup}>
             {/* <h3>My popup</h3>
             <p>This is my button triggered popup</p> */}
           </PopupShowtime>
+
           <Button className="btnManageMovie action-btn" onClick={()=> setButtonPopupEdit(true)}>Sửa</Button>
           <EditMovie trigger={buttonPopupEdit} setTrigger={setButtonPopupEdit}></EditMovie>
+
           <Button className="btnManageMovie action-btn" onClick="">Xóa</Button>
         </Space>
-      ),
+      },
+      width: '30%',
     },
   ];
 
-  const data = [
-    {
-      key: '1',
-      maphim:'1',
-      tenphim: 'The Flash',
-      hinhanh: 'https://picsum.photos/100/100',
-      mota: '..................................',
-      manhom: 'GP01',
-      ngaykhoichieu: ['1-1-2019'],
-    },
-    {
-      key: '2',
-      maphim:'2',
-      tenphim: 'Captain Marvel',
-      hinhanh: 'https://picsum.photos/100/100',
-      mota: '..................................',
-      manhom: 'GP01',
-      ngaykhoichieu: ['1-1-2019'],
-    }
-  ];
+  const data = arrFilmDefault;
 
   function onChange(pagination, filters, sorter, extra) {
     console.log('params', pagination, filters, sorter, extra);
