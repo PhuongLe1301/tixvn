@@ -10,6 +10,10 @@ export class MangageMovieService extends baseService {
     getMovieList = () => {
         return this.get(`/api/QuanLyPhim/LayDanhSachPhim?maNhom=${GROUPID}`);
     }
+
+    addMovieUploadImage = (formData) => {
+        return this.post(`/api/QuanLyPhim/ThemPhimUploadHinh`, formData);
+    }
 }
 
 export const manageMovieService = new MangageMovieService();
