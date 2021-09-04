@@ -10,7 +10,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Fragment } from 'react';
 import { updateUserAction } from '../../redux/action/AdminAction';
 
-function EditMovie(props) {
+function EditUser(props) {
     const dispatch = useDispatch()
     const { editData } = useSelector(state => state.AdminReducer)
     const formik = useFormik({
@@ -33,7 +33,6 @@ function EditMovie(props) {
             maNhom: Yup.string().required('Mã nhóm không được bỏ trống!')
         }),
         onSubmit: (value) => {
-            console.log(value)
             const action = updateUserAction(value)
             dispatch(action)
         }
@@ -55,8 +54,8 @@ function EditMovie(props) {
 
     const modalRef = useRef()
 
-    const closeModal = e =>{
-        if(modalRef.current === e.target){
+    const closeModal = e => {
+        if (modalRef.current === e.target) {
             props.setTrigger(false)
         }
     }
@@ -116,4 +115,4 @@ function EditMovie(props) {
     ) : "";
 }
 
-export default EditMovie
+export default EditUser

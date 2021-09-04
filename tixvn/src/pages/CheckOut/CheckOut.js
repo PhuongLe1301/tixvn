@@ -120,7 +120,6 @@ function CheckOut(props) {
                                 "maLichChieu": props.match.params.id,
                                 "danhSachVe": danhSachGheDangDat,
                             }
-                            console.log('thongTinDatVe', thongTinDatVe);
                             dispatch(datVeAction(thongTinDatVe))
                         }} style={{ cursor: 'pointer' }} className="w-full bg-success text-white text-center">
                             <div className="display-4 py-2">ĐẶT VÉ</div>
@@ -157,13 +156,10 @@ export default function CheckoutTab(props) {
 function KetQuaDatVe(props) {
     const dispatch = useDispatch();
     const { thongTinNguoiDung } = useSelector(state => state.UserReducer)
-
     useEffect(() => {
         const action = layThongTinNguoiDungAction();
         dispatch(action)
     }, [])
-    console.log('thongTinNguoiDung', thongTinNguoiDung)
-
     const renderTicketItem = () => {
         return thongTinNguoiDung?.thongTinDatVe?.map((item, index) => {
             const seats = _.first(item.danhSachGhe);
@@ -180,7 +176,7 @@ function KetQuaDatVe(props) {
     }
 
     return <div className="p-5">
-        <h1 className="text-center">Lịch sử đặt vé khách hàng</h1>
+        <h1 className="text-center text-white">Lịch sử đặt vé khách hàng</h1>
         <section className="container">
             <div className="row cardDesign">
                 {renderTicketItem()}

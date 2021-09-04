@@ -1,12 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom'
 import { getApiMovieAction } from '../../redux/action/FilmAction';
 import { useDispatch, useSelector } from 'react-redux'
 import './Home.css';
+import Trailer from '../Trailer/Trailer';
 import Movie from '../../components/Movie/Movie';
 import MultipleRows from '../../components/ReactSlick/MultipleRowsSlick';
-
-export default function Home() {
+export default function Home(props) {
+    const [buttonPopup, setButtonPopup] = useState(false);
     const dispatch = useDispatch()
     const arrFilm = useSelector(state => state.FilmReducer.arrFilm);
     useEffect(() => {
@@ -26,7 +27,12 @@ export default function Home() {
                     <div className="carousel-item active">
                         <img src="https://s3img.vcdn.vn/123phim/2021/04/trang-ti-16194117174325.jpg" className="d-block w-100" alt="https://s3img.vcdn.vn/123phim/2021/04/trang-ti-16194117174325.jpg" />
                         <div className="carousel-button-play">
-                            <i className="fa fa-play"></i>
+                            <i className="fa fa-play" onClick={() => setButtonPopup(true)}></i>
+                            <Trailer trigger={buttonPopup} setTrigger={setButtonPopup}>
+                                <div>
+                                    <iframe width="1110" height="450" src='https://www.youtube.com/watch?v=kBY2k3G6LsM' frameBorder="0" allowFullScreen></iframe>
+                                </div>
+                            </Trailer>
                         </div>
                     </div>
                     <div className="carousel-item">
@@ -91,8 +97,8 @@ export default function Home() {
                     <button className="btn btn_buyTicket text-white" type="button">MUA VÉ NGAY</button>
                 </div>
             </div>
-            <div className="container recommendMovie">
-                <MultipleRows arrFilm={arrFilm}/>
+            <div id="theaterList" className="container recommendMovie">
+                <MultipleRows arrFilm={arrFilm} />
             </div>
         </div>
     )

@@ -4,7 +4,6 @@ const stateDefault = {
     danhSachNguoiDung: [],
     dataUser: [],
     editData: {}
-
 }
 export const AdminReducer = (state = stateDefault, action) => {
     switch (action.type) {

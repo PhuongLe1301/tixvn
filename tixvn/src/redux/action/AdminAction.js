@@ -80,7 +80,6 @@ export const updateUserAction = (dataUser) => {
                 }
             })
             alert("Cập nhật thành công!")
-            console.log(result.data.content)
             history.push('/admin/quanlyphim')
         }
         catch (errors) {
@@ -99,10 +98,6 @@ export const deleteUserAction = (taiKhoan) => {
                     'Authorization': `Bearer ${localStorage.getItem(ACCESSTOKEN)}`
                 }
             })
-            // if(result.data.statusCode === 500){
-            //     alert(result.content)
-            // }
-            console.log(result.data.content)
             alert('Xóa tài khoản thành công!')
             dispatch(getApiUserAction())
         }

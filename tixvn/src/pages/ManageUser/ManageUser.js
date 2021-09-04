@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Table, Tag, Space, Input, Button } from 'antd';
 import { AudioOutlined } from '@ant-design/icons';
 import './ManageMovie.css';
-import AddMovie from './AddMovie';
-import EditMovie from './EditMovie';
+import AddUser from './AddUser';
+import EditUser from './EditUser';
 import { deleteUserAction, getApiUserAction, loadDataUserAction, searchUserAction } from '../../redux/action/AdminAction';
 import { useDispatch, useSelector } from 'react-redux';
 import { Fragment } from 'react';
@@ -20,7 +20,6 @@ export default function ManageUser(props) {
     const action = getApiUserAction()
     dispatch(action)
   }, [])
-  // console.log(danhSachNguoiDung)
   const suffix = (
     <AudioOutlined
       style={{
@@ -35,7 +34,6 @@ export default function ManageUser(props) {
     if (value == '') {
       dispatch(getApiUserAction())
     }
-    console.log(value);
   }
   const columns = [
     {
@@ -83,15 +81,13 @@ export default function ManageUser(props) {
             onClick={() => {
               setButtonPopupEdit(true)
               dispatch(loadDataUserAction(nguoiDung.taiKhoan))
-              console.log(nguoiDung.taiKhoan)
             }}
           >Sửa</Button>
-          <EditMovie trigger={buttonPopupEdit} setTrigger={setButtonPopupEdit}></EditMovie>
+          <EditUser trigger={buttonPopupEdit} setTrigger={setButtonPopupEdit}></EditUser>
           <Button className="btnManageMovie action-btn" onClick={() => {
             if (window.confirm('Bạn có chắc muốn xóa tài khoản' + nguoiDung.taiKhoan)) {
               dispatch(deleteUserAction(nguoiDung.taiKhoan))
             }
-            console.log(nguoiDung.taiKhoan)
           }}>Xóa</Button>
         </Space>
       ),
@@ -102,7 +98,7 @@ export default function ManageUser(props) {
   return (
     <div className="manageMovie">
       <button type="submit" className="btn btn-success ml-3 btnManageMovie addMovie-btn" onClick={() => setButtonPopupAdd(true)}>Thêm User</button>
-      <AddMovie trigger={buttonPopupAdd} setTrigger={setButtonPopupAdd}></AddMovie>
+      <AddUser trigger={buttonPopupAdd} setTrigger={setButtonPopupAdd}></AddUser>
       <div className="col-12 my-2 manageMovie-search">
         <Space direction="vertical">
           <Search placeholder="Nhập tên tài khoản" allowClear onSearch={onSearch} style={{ width: 500 }} />

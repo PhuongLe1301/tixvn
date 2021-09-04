@@ -19,9 +19,7 @@ export default function Detail(props) {
     }
     const dispatch = useDispatch()
     const { thongTinChiTiet } = useSelector(state => state.FilmReducer)
-    console.log("chitiet", thongTinChiTiet)
     const [buttonPopup, setButtonPopup] = useState(false);
-    console.log('data',props)
     useEffect(() => {
         const action = getFilmDetailAction(props.match.params.postId);
         dispatch(action)

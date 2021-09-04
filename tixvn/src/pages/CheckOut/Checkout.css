@@ -34,7 +34,6 @@
     background-color: papayawhip !important;
 }
 
-
 .table thead th {
     border-bottom: 0;
 }
@@ -51,6 +50,7 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    color: white;
 }
 .cardCOut {
     width: 140px;
@@ -60,9 +60,22 @@
     border: 1px solid black;
 }
 .card-imageCout {
-    height: 150px;
-    width: 250px;
+    height: 20%;
+    width: 90%;
     margin-bottom: 15px;
+}
+.ant-tabs {
+    background-image: linear-gradient(147deg, #535151 0%, #645454 74%);
+}
+.ant-tabs-top > .ant-tabs-nav,
+.ant-tabs-bottom > .ant-tabs-nav,
+.ant-tabs-top > div > .ant-tabs-nav,
+.ant-tabs-bottom > div > .ant-tabs-nav {
+    margin: 0 0 0 0;
+}
+.ant-tabs > .ant-tabs-nav .ant-tabs-nav-wrap,
+.ant-tabs > div > .ant-tabs-nav .ant-tabs-nav-wrap {
+    background-image: linear-gradient(147deg, #535151 0%, #645454 74%);
 }
 @media screen and (max-width: 1024px) {
     .bgCOut {

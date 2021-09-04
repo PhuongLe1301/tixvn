@@ -9,7 +9,7 @@ import Aos from 'aos';
 import { useDispatch } from 'react-redux';
 import { addUserAction } from '../../redux/action/AdminAction';
 
-function AddMovie(props) {
+function AddUser(props) {
 
     const dispatch = useDispatch()
 
@@ -31,33 +31,25 @@ function AddMovie(props) {
             soDt: Yup.string().matches(/^[0-9]+$/, 'Số điện thoại tất cả là số'),
         }),
         onSubmit: (value) => {
-            console.log(value)
             const action = addUserAction(value)
             dispatch(action)
         }
     })
-
     const handleChangeValue = (name) => {
         return (value) => {
             formik.setFieldValue(name, value)
         }
     }
-
     useEffect(() => {
         Aos.init({ duration: 2000 });
     }, []);
-
     const { handleChange, touched, errors } = formik;
-
     const modalRef = useRef()
-
     const closeModal = e =>{
         if(modalRef.current === e.target){
             props.setTrigger(false)
         }
     }
-
-
     return (props.trigger) ? (
         <div className="popupShowtime" ref={modalRef} onClick={closeModal}>
             <div data-aos="zoom-in" className="popupShowtime-inner text-white">
@@ -116,4 +108,4 @@ function AddMovie(props) {
     ) : "";
 }
 
-export default AddMovie
+export default AddUser
