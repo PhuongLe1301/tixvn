@@ -7,7 +7,10 @@ export class MangageMovieService extends baseService {
         super();
     }
     
-    getMovieList = () => {
+    getMovieList = (tenPhim='') => {
+        if(tenPhim.trim()!= ''){
+            return this.get(`/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP01&tenPhim=${tenPhim}`);
+        }
         return this.get(`/api/QuanLyPhim/LayDanhSachPhim?maNhom=${GROUPID}`);
     }
 
@@ -25,6 +28,10 @@ export class MangageMovieService extends baseService {
 
     deleteMovie = (maPhim) => {
         return this.delete(`/api/QuanLyPhim/XoaPhim?MaPhim=${maPhim}`);
+    }
+
+    getListCarousel = () => {
+        return this.get(`/api/QuanLyPhim/LayDanhSachBanner`);
     }
 }
 

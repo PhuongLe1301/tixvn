@@ -5,26 +5,29 @@ import { SET_CHI_TIET_PHONG_VE, SET_FILMS, SET_FILM_DETAIL } from "../../ultil/s
 import { displayLoadingAction, hideLoadingAction } from "./LoadingAction";
 import { SET_INFO_MOVIE, SET_LIST_MOVIE } from './types/FilmType';
 
-export const getApiMovieAction = () =>{
+export const getApiMovieAction = (tenPhim='') =>{
     return async (dispatch) => {
         try {
-            dispatch(displayLoadingAction)
-            const result = await manageMovieService.getMovieList();
+            dispatch(displayLoadingAction);
+            const result = await manageMovieService.getMovieList(tenPhim);
+
             dispatch({
                 type: SET_LIST_MOVIE,
                 dataFilms: result.data.content
             })
-            await dispatch(hideLoadingAction)
+            await dispatch(hideLoadingAction);
         }catch(errors){
             console.log('errors', errors);
         }
     }
 }
+
 export const addMovieUploadImageAction = (formData) => {
     return async (dispatch) => {
         try{
             const result = await manageMovieService.addMovieUploadImage(formData);
             alert('Thêm phim thành công!');
+            window.location.reload();
         }catch(errors){
             console.log('errors', errors);
         }
@@ -51,6 +54,7 @@ export const updateMovieUploadAction = (formData) => {
             const result = await manageMovieService.updateMovieUpload(formData);
             alert('Cập nhật phim thành công!');
             dispatch(getApiMovieAction());
+            window.location.reload();
 
         }catch(errors){
             console.log('errors', errors);

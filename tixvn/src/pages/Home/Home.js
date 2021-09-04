@@ -1,62 +1,40 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom'
 import { getApiMovieAction } from '../../redux/action/FilmAction';
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux';
 import './Home.css';
 import Trailer from '../Trailer/Trailer';
 import Movie from '../../components/Movie/Movie';
 import MultipleRows from '../../components/ReactSlick/MultipleRowsSlick';
+import HomeMenu from './HomeMenu/HomeMenu';
+import { getListTheaterSystemAction } from '../../redux/action/TheaterAction';
+import DangChieu from './Slick/DangChieu';
+import SapChieu from './Slick/SapChieu';
+import HomeCarousel from './HomeCarousel/HomeCarousel';
+
 export default function Home(props) {
     const [buttonPopup, setButtonPopup] = useState(false);
+
     const dispatch = useDispatch()
     const arrFilm = useSelector(state => state.FilmReducer.arrFilm);
+
+    const { heThongRapChieu } = useSelector(state => state.TheaterReducer);
+
     useEffect(() => {
         const action = getApiMovieAction();
         dispatch(action);
+
+        dispatch(getListTheaterSystemAction());
     }, [])
+
+    const [toggleState, setToggleState] = useState(1)
+    const toggleTab = (index) => {
+        setToggleState(index)
+    }
 
     return (
         <div>
-            <div id="carouselTix" className="carousel carousel__Tix slide mt-5 position-relative" data-ride="carousel">
-                <ol className="carousel-indicators">
-                    <li data-target="#carouselTix" data-slide-to={0} className="active" />
-                    <li data-target="#carouselTix" data-slide-to={1} />
-                    <li data-target="#carouselTix" data-slide-to={2} />
-                </ol>
-                <div className="carousel-inner carousel__content">
-                    <div className="carousel-item active">
-                        <img src="https://s3img.vcdn.vn/123phim/2021/04/trang-ti-16194117174325.jpg" className="d-block w-100" alt="https://s3img.vcdn.vn/123phim/2021/04/trang-ti-16194117174325.jpg" />
-                        <div className="carousel-button-play">
-                            <i className="fa fa-play" onClick={() => setButtonPopup(true)}></i>
-                            <Trailer trigger={buttonPopup} setTrigger={setButtonPopup}>
-                                <div>
-                                    <iframe width="1110" height="450" src='https://www.youtube.com/watch?v=kBY2k3G6LsM' frameBorder="0" allowFullScreen></iframe>
-                                </div>
-                            </Trailer>
-                        </div>
-                    </div>
-                    <div className="carousel-item">
-                        <img src="https://s3img.vcdn.vn/123phim/2021/04/ban-tay-diet-quy-evil-expeller-16177781815781.png" className="d-block w-100" alt="https://s3img.vcdn.vn/123phim/2021/04/ban-tay-diet-quy-evil-expeller-16177781815781.png" />
-                        <div className="carousel-button-play">
-                            <i className="fa fa-play"></i>
-                        </div>
-                    </div>
-                    <div className="carousel-item">
-                        <img src="https://s3img.vcdn.vn/123phim/2021/04/lat-mat-48h-16177782153424.png" className="d-block w-100" alt="https://s3img.vcdn.vn/123phim/2021/04/lat-mat-48h-16177782153424.png" />
-                        <div className="carousel-button-play">
-                            <i className="fa fa-play"></i>
-                        </div>
-                    </div>
-                </div>
-                <a className="carousel-control-prev" href="#carouselTix" role="button" data-slide="prev">
-                    <span className="carousel-control-prev-icon" aria-hidden="true" />
-                    <span className="sr-only">Previous</span>
-                </a>
-                <a className="carousel-control-next" href="#carouselTix" role="button" data-slide="next">
-                    <span className="carousel-control-next-icon" aria-hidden="true" />
-                    <span className="sr-only">Next</span>
-                </a>
-            </div>
+            <HomeCarousel/>
             <div className="container filterMovie d-flex justify-content-between bg-white position-absolute">
                 <div className="filterMovie_item dropdown">
                     <button className="btn btnFilter_Movie bg-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -97,8 +75,24 @@ export default function Home(props) {
                     <button className="btn btn_buyTicket text-white" type="button">MUA VÉ NGAY</button>
                 </div>
             </div>
-            <div id="theaterList" className="container recommendMovie">
+            {/* <div id="theaterList" className="container recommendMovie">
                 <MultipleRows arrFilm={arrFilm} />
+            </div> */}
+
+            <div id="recommendMovie" className="container recommendMovie">
+                <div className="col-12 text-center btn_recommnendMovie">
+                    <a className={toggleState === 1 ? "active mr-5" : "inactive mr-5"} onClick={() => toggleTab(1)}>Đang Chiếu</a>
+                    <a className={toggleState === 2 ? "active" : "inactive"} onClick={() => toggleTab(2)}>Sắp Chiếu</a>
+                </div>
+                <div className={toggleState === 1 ? "recommendMovie_item d-block mt-5" : "recommendMovie_item d-none"}>
+                    <DangChieu arrFilm={arrFilm} />
+                </div>
+                <div className={toggleState === 2 ? "recommendMovie_item d-block  mt-5" : "recommendMovie_item d-none"}>
+                    <SapChieu arrFilm={arrFilm} />
+                </div>
+            </div>
+            <div id="cumRap" className="container">
+                <HomeMenu heThongRapChieu={heThongRapChieu} />
             </div>
         </div>
     )

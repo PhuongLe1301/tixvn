@@ -10,7 +10,7 @@ export default function Login() {
     const dispatch = useDispatch();
 
     const { userLogin } = useSelector(state => state.UserReducer);
-    console.log('userLogin', userLogin);
+    // console.log('userLogin', userLogin);
     const formik = useFormik({
         initialValues: {
             taiKhoan: '',
@@ -19,7 +19,6 @@ export default function Login() {
         onSubmit: values => {
             const action = dangNhapAction(values);
             dispatch(action);
-            console.log('value', values);
         },
     });
 

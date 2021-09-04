@@ -4,7 +4,7 @@ import { SET_INFO_MOVIE, SET_LIST_MOVIE, SET_MOVIE_DANG_CHIEU, SET_MOVIE_SAP_CHI
 const stateDefault = {
     arrFilm: [{},],
     dangChieu: true,
-    sapChieu: true,
+    sapChieu: false,
     arrFilmDefault: [],
     thongTinChiTiet: {},
     chiTietPhongVe: {
@@ -12,7 +12,7 @@ const stateDefault = {
     },
     danhSachGheDangDat: [],
     tabActive: "1",
-    thongTinPhim:{}
+    thongTinPhim:{},
 }
 
 export const FilmReducer = (state = stateDefault, action) => {
@@ -53,7 +53,7 @@ export const FilmReducer = (state = stateDefault, action) => {
             else {
                 danhSachGheCapNhat.push(action.gheDuocChon);
             }
-            console.log(action)
+            // console.log(action)
             return { ...state, danhSachGheDangDat: danhSachGheCapNhat }
         }
         case DAT_VE_HOAN_TAT: {
@@ -68,6 +68,7 @@ export const FilmReducer = (state = stateDefault, action) => {
             state.tabActive = action.number;
             return { ...state }
         }
+
         default: return state;
     }
 }

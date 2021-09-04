@@ -1,7 +1,16 @@
 import React from 'react';
-import "./Footer.css"
+import { useSelector } from 'react-redux';
+import "./Footer.css";
+import _ from 'lodash';
 
-export default function Footer() {
+export default function Footer(props) {
+
+    const {heThongRapChieu} = useSelector(state => state.TheaterReducer);
+    const arrHeThongRap = _.map(heThongRapChieu, (heThongRap) =>
+        _.pick(heThongRap, ['maHeThongRap', 'tenHeThongRap', 'logo'])
+    );
+    // console.log('arr', arrHeThongRap);
+
     return (
         <div className="bg-dark text-white">
             <div className="container footer">
@@ -44,6 +53,9 @@ export default function Footer() {
                             </a>
                             <a target="_blank" href="https://www.betacineplex.vn/" title="Beta">
                                 <img src="https://tix.vn/app/assets/img/icons/bt.jpg" alt="https://tix.vn/app/assets/img/icons/bt.jpg" />
+                            </a>
+                            <a target="_blank" href="https://www.betacineplex.vn/" title="Beta">
+                                <img src="https://tix.vn/app/assets/img/icons/dongdacinema.png" alt="https://tix.vn/app/assets/img/icons/dongdacinema.png" />
                             </a>
                             <a target="_blank" href="https://touchcinema.com/" title="Touch Cinema">
                                 <img src="https://tix.vn/app/assets/img/icons/TOUCH.png" alt="https://tix.vn/app/assets/img/icons/TOUCH.png" />
@@ -114,7 +126,8 @@ export default function Footer() {
                         </div>
                     </div>
                 </div>
-                <hr className="py-5"/>
+                <hr/>
+                <div className="pb-5">@2021 All rights reserved</div>
             </div>
         </div>
     )

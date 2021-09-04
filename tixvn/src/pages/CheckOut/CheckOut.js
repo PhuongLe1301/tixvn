@@ -136,7 +136,7 @@ export default function CheckoutTab(props) {
 
     const { tabActive } = useSelector(state => state.FilmReducer)
     const dispatch = useDispatch()
-    return <div>
+    return <div className="checkOut">
         <Tabs defaultActiveKey="1" activeKey={tabActive} onChange={(key) => {
             dispatch({
                 type: CHANGE_TAB_ACTIVE,

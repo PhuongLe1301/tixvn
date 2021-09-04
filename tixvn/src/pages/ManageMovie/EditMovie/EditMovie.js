@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import '../PopupShowtime.css';
+import '../ShowTime/PopupShowtime.css';
 import { Form, Button, Input, DatePicker, Switch, InputNumber } from 'antd';
 import { CloseCircleOutlined } from '@ant-design/icons';
 import "aos/dist/aos.css";

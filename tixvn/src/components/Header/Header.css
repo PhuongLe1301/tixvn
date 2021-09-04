@@ -46,7 +46,7 @@
 .p {
     display: inline-block;
     font-weight: 12px;
-    font-size: 15px;
+    font-size: 1.2rem;
     color: grey;
 }
 .location {
@@ -69,7 +69,7 @@
     border-bottom: 3px solid transparent;
 }
 .nav-links:hover {
-    color: #ffdd40;
+    color: #fb4226;
 }
 .nav-item {
     line-height: 40px;
@@ -86,7 +86,7 @@
 }
 .nav-item:hover:after {
     width: 100%;
-    background: #ffdd40;
+    background: #fb4226;
 }
 .nav-icon {
     display: none;
@@ -120,6 +120,7 @@
         padding: 1.5rem;
         width: 100%;
         display: table;
+        transition: 5s;
     }
 
     .nav-icon {
@@ -136,4 +137,23 @@
     .location {
         display: none;
     }
+}
+
+.account:hover .logout_btn{
+    display: block;
+}
+
+.logout_btn{
+    position: absolute;
+    transform: translate(36%, 21%);
+    background-color: #959595;
+    border-radius: 4px;
+    color: #fff;
+    display: none;
+}
+
+.logout_btn a{
+    padding: 10px;
+    transition: background-color .2s ease;
+    border-radius: 4px;
 }

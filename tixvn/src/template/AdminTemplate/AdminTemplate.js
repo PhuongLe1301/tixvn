@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { NavLink, Redirect, Route } from 'react-router-dom';
 import './AdminTemplate.css';
 import { Layout, Menu } from 'antd';
+import { history } from '../../App';
+
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
@@ -11,7 +13,7 @@ import {
   RightOutlined
 } from '@ant-design/icons';
 import { useSelector } from 'react-redux';
-import { USER_LOGIN } from '../../ultil/setting';
+import { ACCESSTOKEN, USER_LOGIN } from '../../ultil/setting';
 
 const { Header, Sider, Content } = Layout;
 const { SubMenu } = Menu;
@@ -19,7 +21,7 @@ const { SubMenu } = Menu;
 export default function AdminTemplate(props) {
 
   const {userLogin} = useSelector( state => state.UserReducer);
-  console.log('userLogin', userLogin);
+  // console.log('userLogin', userLogin);
 
   const [state, setState] = useState({
     collapsed: false,
@@ -58,7 +60,9 @@ export default function AdminTemplate(props) {
         <Layout>
           <Sider trigger={null} collapsible collapsed={state.collapsed}>
             <div className="logo">
-              <img src="https:tix.vn/app/assets/img/icons/web-logo.png" style={{ width: 50, height: 50 }} alt="https:tix.vn/app/assets/img/icons/web-logo.png" />
+                <NavLink to='/'>
+                  <img src="https:tix.vn/app/assets/img/icons/web-logo.png" style={{ width: 50, height: 50 }} alt="https:tix.vn/app/assets/img/icons/web-logo.png" />
+                </NavLink>
             </div>
             <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
               <Menu.Item key="1" icon={<PlaySquareOutlined />}>
@@ -78,14 +82,20 @@ export default function AdminTemplate(props) {
               <div className="userFunction position-absolute d-flex">
                 <h4 className="text-white">
                   Chào!,
-                  <span> Hảo</span>
+                  <span> {userLogin.hoTen}</span>
                 </h4>
                 <img className="rounded-circle ml-3" src="https:tix.vn/app/assets/img/icons/web-logo.png" alt="https:tix.vn/app/assets/img/icons/web-logo.png" />
                 <Menu className="text-white" onClick={handleClick} selectedKeys={[current]} mode="horizontal">
                   <SubMenu key="SubMenu" icon={<CaretDownFilled style={{ fontSize: '20px' }} />}>
                     <Menu.ItemGroup>
                       <Menu.Item icon={<RightOutlined />} key="setting:1">Cập nhật thông tin</Menu.Item>
-                      <Menu.Item icon={<RightOutlined />} key="setting:2">Đăng xuất</Menu.Item>
+                      <Menu.Item icon={<RightOutlined />} key="setting:2"><a onClick={()=>{
+                    localStorage.removeItem(USER_LOGIN);
+                    localStorage.removeItem(ACCESSTOKEN);
+                    history.push('/');
+                    window.location.reload();
+                }}>
+                    Đăng Xuất</a></Menu.Item>
                     </Menu.ItemGroup>
                   </SubMenu>
                 </Menu>

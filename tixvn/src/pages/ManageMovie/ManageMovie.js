@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Table, Tag, Space, Input, Button } from 'antd';
 import './ManageMovie.css';
-import PopupShowtime from './PopupShowtime';
+import PopupShowtime from './ShowTime/PopupShowtime';
 import AddMovie from './AddMovie/AddMovie';
 import EditMovie from './EditMovie/EditMovie';
 import { deteleteMovieAction, getApiMovieAction, getInfoMovieAction } from '../../redux/action/FilmAction';
@@ -25,7 +25,9 @@ export default function ManageMovie() {
   const [buttonPopupAdd, setButtonPopupAdd] = useState(false);
   const [buttonPopupEdit, setButtonPopupEdit] = useState(false);
 
-  const onSearch = value => console.log(value);
+  const onSearch = (value) => {
+    dispatch(getApiMovieAction(value));
+  };
 
   const columns = [
     {
@@ -86,10 +88,11 @@ export default function ManageMovie() {
       title: 'Hành động',
       render: (text, movie) => {
         return <Space size="middle">
-          <Button className="btnManageMovie action-btn" onClick={() => setButtonPopup(true)}>Tạo lịch chiếu</Button>
-          <PopupShowtime trigger={buttonPopup} setTrigger={setButtonPopup}>
-            {/* <h3>My popup</h3>
-            <p>This is my button triggered popup</p> */}
+          <Button className="btnManageMovie action-btn" onClick={() => {  
+            setButtonPopup(true);
+            // console.log('tenPhim', movie.tenPhim);
+          }}>Tạo lịch chiếu</Button>
+          <PopupShowtime movie={movie} trigger={buttonPopup} setTrigger={setButtonPopup}>
           </PopupShowtime>
 
           <Button key={1} className="btnManageMovie action-btn" onClick={() => {
@@ -112,7 +115,7 @@ export default function ManageMovie() {
   const data = arrFilmDefault;
 
   function onChange(pagination, filters, sorter, extra) {
-    console.log('params', pagination, filters, sorter, extra);
+    // console.log('params', pagination, filters, sorter, extra);
   }
 
   return (

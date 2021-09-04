@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState , Fragment } from 'react';
 import { NavLink } from 'react-router-dom';
 import './Header.css';
 import { history } from '../../App';
 import { useSelector } from 'react-redux';
 import _ from 'lodash';
+import { ACCESSTOKEN, USER_LOGIN } from '../../ultil/setting';
 
 export default function Header() {
     const [click, setClick] = useState(false);
@@ -13,31 +14,53 @@ export default function Header() {
     const isLogin = () => {
         <img className="imgAccount" src="https:tix.vn/app/assets/img/avatar.png" />
     }
+
+    const renderLogin = () =>{
+        if(_.isEmpty(userLogin)){
+            return <NavLink className="p" to='/login'>Đăng Nhập</NavLink>
+        }
+        return <Fragment>
+            <NavLink className="p" style={{color:'#9b9b9b'}} to="/">{userLogin.hoTen.length > 11 ? userLogin.hoTen.substr(0,11) + '...' : userLogin.hoTen}</NavLink>
+            <div className='logout_btn'>
+                <a onClick={()=>{
+                    localStorage.removeItem(USER_LOGIN);
+                    localStorage.removeItem(ACCESSTOKEN);
+                    history.push('/');
+                    window.location.reload();
+                }}>
+                    Đăng Xuất</a>
+            </div>
+        </Fragment>
+    }
+
     return (
         <nav className="navbar">
             <div className="nav-container">
-                <img className="nav-logo" src="https:tix.vn/app/assets/img/icons/web-logo.png" style={{ width: 50, height: 50 }} alt="https:tix.vn/app/assets/img/icons/web-logo.png" />
-
+                <NavLink to="/">
+                    <img className="nav-logo" src="https:tix.vn/app/assets/img/icons/web-logo.png" style={{ width: 50, height: 50 }} alt="https:tix.vn/app/assets/img/icons/web-logo.png" />
+                </NavLink>
                 <ul className={click ? "nav-menu active" : "nav-menu"}>
                     <li className="nav-item">
-                        <NavLink className="nav-links" to="/" activeClassName="active">Home</NavLink>
+                        <a className="nav-links" href="#recommendMovie" activeClassName="active">Lịch Chiếu</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-links" activeClassName="active" href="#theaterList">Danh Sách Phim</a>
+                        <a className="nav-links" activeClassName="active" href="#cumRap">Cụm rạp</a>
                     </li>
                     <li className="nav-item">
                         <a className="nav-links" activeClassName="active" href="#">Tin Tức</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-links" activeClassName="active" href="#">Contact Us</a>
+                        <a className="nav-links" activeClassName="active" href="#">Ứng dụng</a>
                     </li>
                 </ul>
-                <div className="account">
-                    {_.isEmpty(userLogin) ? <NavLink className="p" onClick={() => { history.push('/login') }}>Đăng Nhập</NavLink> : <p className="p">Hello!{userLogin.taiKhoan}</p>}
+                <div className="account mb-3 mr-5">
+                    <img className="imgAccount" src="https:tix.vn/app/assets/img/avatar.png" />
+                    {/* {_.isEmpty(userLogin) ? <NavLink className="p" to='/login'>Đăng Nhập</NavLink> : <NavLink className="p" to="/">{userLogin.hoTen}</NavLink>} */}
+                    {renderLogin()}
 
                 </div>
-                <div className="location">
-                    <img src="https:tix.vn/app/assets/img/icons/location-header.png" />
+                <div className="location text-dark">
+                    <img className='mr-2' src="https:tix.vn/app/assets/img/icons/location-header.png" />
                     <select className="border">
                         <option>Hồ Chí Minh</option>
                         <option>Hà Nội</option>
