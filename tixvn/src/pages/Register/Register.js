@@ -28,7 +28,6 @@ export default function Register(props) {
         }),
         onSubmit: value => {
             const action = dangKyAction(value)
-            console.log('value',value)
             dispatch(action);
         }
     })
