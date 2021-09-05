@@ -20,8 +20,7 @@ export default function Header() {
             return <NavLink className="p" to='/login'>Đăng Nhập</NavLink>
         }
         return <Fragment>
-            <NavLink className="p mr-2" style={{color:'#9b9b9b'}} to="/">{userLogin.hoTen.length > 11 ? userLogin.hoTen.substr(0,11) + '...' : userLogin.hoTen}</NavLink>
-            <NavLink className="p" to="/user">Profile</NavLink>
+            <NavLink className="p mr-2" style={{color:'#9b9b9b'}} to="/user">{userLogin.hoTen.length > 11 ? userLogin.hoTen.substr(0,11) + '...' : userLogin.hoTen}</NavLink>
             <div className='logout_btn'>
                 <a onClick={()=>{
                     localStorage.removeItem(USER_LOGIN);
@@ -56,7 +55,6 @@ export default function Header() {
                 </ul>
                 <div className="account mb-3 mr-5">
                     <img className="imgAccount" src="https:tix.vn/app/assets/img/avatar.png" />
-                    {/* {_.isEmpty(userLogin) ? <NavLink className="p" to='/login'>Đăng Nhập</NavLink> : <NavLink className="p" to="/">{userLogin.hoTen}</NavLink>} */}
                     {renderLogin()}
 
                 </div>

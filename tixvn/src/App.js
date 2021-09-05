@@ -34,8 +34,6 @@ function App() {
 
         <UserTemplate component={Register} exact path="/register" />
         <UserTemplate component={Login} exact path="/login" />
-        
-        <Route component={News} exact path="/news"/>
         {/* Admin  */}
         <AdminTemplate component={ManageMovie} exact path="/admin/quanlyphim" />
         <AdminTemplate component={ManageUser} exact path="/admin/quanlynguoidung"/>
