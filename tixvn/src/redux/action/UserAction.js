@@ -81,3 +81,21 @@ export const layThongTinNguoiDungAction = () => {
         }
     }
 }
+export const updateClientAction = (dataClient)=>{
+    return async dispatch =>{
+        try{
+            const result = await axios ({
+                url:'http://movieapi.cyberlearn.vn/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung',
+                method:'PUT',
+                data:dataClient,
+                headers: {
+                    'Authorization': `Bearer ${localStorage.getItem(ACCESSTOKEN)}`
+                }
+            })
+            alert('Cập Nhật Thành Công')
+        }
+        catch (error) {
+            console.log('error', error.response.data);
+        }
+    }
+}

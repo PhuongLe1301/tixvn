@@ -133,7 +133,6 @@ function CheckOut(props) {
 
 const { TabPane } = Tabs;
 export default function CheckoutTab(props) {
-
     const { tabActive } = useSelector(state => state.FilmReducer)
     const dispatch = useDispatch()
     return <div className="checkOut">
@@ -187,4 +186,3 @@ function KetQuaDatVe(props) {
 
     </div>
 }
-

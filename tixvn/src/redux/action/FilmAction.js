@@ -10,7 +10,6 @@ export const getApiMovieAction = (tenPhim='') =>{
         try {
             dispatch(displayLoadingAction);
             const result = await manageMovieService.getMovieList(tenPhim);
-
             dispatch({
                 type: SET_LIST_MOVIE,
                 dataFilms: result.data.content

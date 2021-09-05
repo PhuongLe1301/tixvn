@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom'
 import { getApiMovieAction } from '../../redux/action/FilmAction';
 import { useDispatch, useSelector } from 'react-redux';
 import './Home.css';
+import News from '../News/News';
 import Trailer from '../Trailer/Trailer';
 import Movie from '../../components/Movie/Movie';
 import MultipleRows from '../../components/ReactSlick/MultipleRowsSlick';
@@ -17,9 +18,7 @@ export default function Home(props) {
 
     const dispatch = useDispatch()
     const arrFilm = useSelector(state => state.FilmReducer.arrFilm);
-
     const { heThongRapChieu } = useSelector(state => state.TheaterReducer);
-
     useEffect(() => {
         const action = getApiMovieAction();
         dispatch(action);
@@ -75,10 +74,6 @@ export default function Home(props) {
                     <button className="btn btn_buyTicket text-white" type="button">MUA VÉ NGAY</button>
                 </div>
             </div>
-            {/* <div id="theaterList" className="container recommendMovie">
-                <MultipleRows arrFilm={arrFilm} />
-            </div> */}
-
             <div id="recommendMovie" className="container recommendMovie">
                 <div className="col-12 text-center btn_recommnendMovie">
                     <a className={toggleState === 1 ? "active mr-5" : "inactive mr-5"} onClick={() => toggleTab(1)}>Đang Chiếu</a>
@@ -93,6 +88,9 @@ export default function Home(props) {
             </div>
             <div id="cumRap" className="container">
                 <HomeMenu heThongRapChieu={heThongRapChieu} />
+            </div>
+            <div id="tinTuc" className="pt-5">
+                <News/>
             </div>
         </div>
     )

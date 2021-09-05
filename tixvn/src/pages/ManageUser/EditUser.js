@@ -47,19 +47,12 @@ function EditUser(props) {
     useEffect(() => {
         Aos.init({ duration: 2000 });
     }, []);
-
-    const close = () => {
-        props.setTrigger(false)
-    }
-
     const modalRef = useRef()
-
     const closeModal = e => {
         if (modalRef.current === e.target) {
             props.setTrigger(false)
         }
     }
-
     return (props.trigger) ? (
         <div className="popupShowtime" ref={modalRef} onClick={closeModal}>
             <div data-aos="zoom-in" className="popupShowtime-inner text-white">

@@ -45,12 +45,10 @@ export default function AdminTemplate(props) {
     alert('Bạn không có quyền truy cập vào trang này !');
     return <Redirect to = '/' />
   }
-
   if(userLogin.maLoaiNguoiDung !== 'QuanTri') {
     alert('Bạn không có quyền truy cập vào trang này !');
     return <Redirect to = '/' />
   }
-
   return (
     <Route path={props.path} exact render={(propsRoute) => {
       return <div className="adminTemplate">

@@ -42,7 +42,7 @@ export const addUserAction = (dataUser) => {
             }
             dispatch(action)
             alert('Thêm Người Dùng Thành Công!')
-            history.push('/admin/quanlyphim')
+            window.location.reload();
 
         }
         catch (errors) {
@@ -80,7 +80,7 @@ export const updateUserAction = (dataUser) => {
                 }
             })
             alert("Cập nhật thành công!")
-            history.push('/admin/quanlyphim')
+            window.location.reload();
         }
         catch (errors) {
             console.log(errors.response?.data)

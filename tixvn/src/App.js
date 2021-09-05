@@ -16,6 +16,7 @@ import UserTemplate from './template/UserTemplate/UserTemplate';
 import CheckoutTemaplate from './template/CheckoutTemplate/CheckoutTemaplate'
 import Loading from './components/Loading/Loading';
 import DetailTheater from './pages/DetailTheater/DetailTheater';
+import User from './pages/User/User';
 
 export const history = createBrowserHistory();
 
@@ -28,12 +29,13 @@ function App() {
         <HomeTemplate component={Home} exact path="/" />
         <HomeTemplate component={Detail} exact path="/detail/:postId" />
         <HomeTemplate component={DetailTheater} exact path="/detail/:postId" />
+        <HomeTemplate component={User} exact path="/user"/>
         <CheckoutTemaplate component={CheckOut} exact path="/checkout/:id" />
 
         <UserTemplate component={Register} exact path="/register" />
         <UserTemplate component={Login} exact path="/login" />
         
-        {/* <Route component={News} exact path="/news"/> */}
+        <Route component={News} exact path="/news"/>
         {/* Admin  */}
         <AdminTemplate component={ManageMovie} exact path="/admin/quanlyphim" />
         <AdminTemplate component={ManageUser} exact path="/admin/quanlynguoidung"/>

@@ -1,0 +1,13 @@
+.repons{
+    padding-left: 16px;
+    flex: 0 0 50%;
+    max-width: 50%;
+}
+.news{
+    color: black;
+}
+.fullImg{
+    width: 100%;
+    height: auto;
+    border-radius: 5%;
+}

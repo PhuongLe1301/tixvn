@@ -8,10 +8,6 @@ const { TabPane } = Tabs;
 
 export default class HomeMenu extends React.PureComponent {
 
-    // componentDidMount(){
-
-    // }
-
     renderHeThongRap = () => {
         return this.props.heThongRapChieu?.map((heThongRap, index) => {
             return <TabPane key={index} tab={<div>
@@ -66,7 +62,7 @@ export default class HomeMenu extends React.PureComponent {
     }
 
     render() {
-        // console.log('props hethongrapchieu', this.props);
+        console.log('props hethongrapchieu', this.props);
         return (
             <Tabs tabPosition={'left'} className="homeMenu border p-2 mb-3">
                 {this.renderHeThongRap()}
