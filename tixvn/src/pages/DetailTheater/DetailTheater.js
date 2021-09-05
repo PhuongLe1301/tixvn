@@ -15,6 +15,7 @@ import TabInFo from '../Detail/TabInFo';
 import { getInfoCinemaComplexAction, getListTheaterSystemAction } from '../../redux/action/TheaterAction';
 import _ from 'lodash';
 import HomeMenu from '../Home/HomeMenu/HomeMenu';
+import './DetailTheater.css';
 
 export default function DetailTheater(props) {
     const [toggleState, setToggleState] = useState(1)
@@ -119,7 +120,7 @@ export default function DetailTheater(props) {
                 <div className='container danhGiaRap'>
                     <div className={toggleState === 3 ? "detailBottom activeDetail " : "detailBottom"}>
                         <div className='row bg-white'>
-                            <div className='col-12 d-flex justify-content-start position-relative'>
+                            <div className='col-12 d-flex justify-content-start position-relative danhGiaRap_detail'>
                                 <div className='imgUser'>
                                     <img className="" src="https:tix.vn/app/assets/img/icons/web-logo.png" style={{ width: 50, height: 50 }} alt="https:tix.vn/app/assets/img/icons/web-logo.png" />
                                 </div>

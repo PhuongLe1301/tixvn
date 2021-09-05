@@ -87,6 +87,12 @@
     display: none;
 }
 
+@media screen and (max-width: 1370px) {
+    .account{
+        right: 9%;
+    }
+}
+
 @media screen and (max-width: 1024px) {
     .account{
         right: 10%;
