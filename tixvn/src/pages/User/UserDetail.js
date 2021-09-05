@@ -28,7 +28,7 @@ export default function UserDetail(props) {
         onSubmit: (value) => {
             const action = updateClientAction(value)
             dispatch(action)
-            console.log(value)
+            // console.log(value)
         }
     })
     const { handleChange, touched, errors } = formik;
