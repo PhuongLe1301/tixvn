@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import "./Detail.css"
 import "./circle.css"
 import { useSelector, useDispatch } from 'react-redux';
@@ -53,7 +53,7 @@ export default function Detail(props) {
                                 <li className="text-danger" style={{ fontWeight: 'bold' }}>C18 - {thongTinChiTiet?.tenPhim}</li>
                                 <li>129 phút - 0 IMDb - 2D/Digital</li>
                                 <li><Button text="Trailer" onClick={() => setButtonPopup(true)}></Button></li>
-                                <Trailer trigger={buttonPopup} setTrigger={setButtonPopup}>
+                                <Trailer trigger={buttonPopup} setTrigger={setButtonPopup} >
                                     <div>
                                         <iframe width="1110" height="450" src={thongTinChiTiet?.trailer} frameBorder="0" allowFullScreen></iframe>
                                     </div>

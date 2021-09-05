@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import '../ShowTime/PopupShowtime.css';
 import { Form, Button, Input, DatePicker, Switch, InputNumber } from 'antd';
 import { CloseCircleOutlined } from '@ant-design/icons';
@@ -10,11 +10,8 @@ import moment from 'moment';
 import { updateMovieUploadAction } from '../../../redux/action/FilmAction';
 
 const EditMovie = (props) => {
-
     const dispatch = useDispatch();
     const { thongTinPhim } = useSelector(state => state.FilmReducer);
-    // console.log('thongTinPhim', thongTinPhim);
-
     const [imgSrc, setImgSrc] = useState('');
 
     const formik = useFormik({
@@ -34,7 +31,6 @@ const EditMovie = (props) => {
         onSubmit: (values) => {
             console.log('values', values);
             let formData = new FormData();
-            // values.maNhom = GROUPID;
             for (let key in values) {
                 if (key !== 'hinhAnh') {
                     formData.append(key, values[key])
@@ -51,7 +47,12 @@ const EditMovie = (props) => {
     useEffect(() => {
         Aos.init({ duration: 2000 });
     }, []);
-
+    const modalRef = useRef()
+    const closeModal = e => {
+        if (modalRef.current === e.target) {
+            props.setTrigger(false)
+        }
+    }
     const handleChangeDatePicker = (value) => {
         let ngayKhoiChieu = moment(value);
         formik.setFieldValue('ngayKhoiChieu', ngayKhoiChieu);
@@ -81,7 +82,7 @@ const EditMovie = (props) => {
     }
 
     return (props.trigger) ? (
-        <div className="popupShowtime">
+        <div className="popupShowtime" ref={modalRef} onClick={closeModal}>
             <div data-aos="zoom-in" className="popupShowtime-inner text-white">
                 <CloseCircleOutlined
                     className="close-btn"
