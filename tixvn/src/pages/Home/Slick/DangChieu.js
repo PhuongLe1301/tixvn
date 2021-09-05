@@ -28,8 +28,8 @@ export default function DangChieu(props) {
                 {
                     breakpoint: 990,
                     cols: 2
-                }
-            ]}>
+                },
+            ]} mobileBreakpoint={768}>
                 {renderDangChieu()}
             </Carousel>
         </div>

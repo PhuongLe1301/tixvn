@@ -20,7 +20,24 @@ hr{
     background-color: white;
     border: 1px solid white;
     border-radius: 50%;
-    
+}
+
+.footer_responsive768{
+    display: none;
+}
+
+
+@media screen and (max-width: 768px) {
+    .doitac_footer, 
+    .appRecomend, 
+    .footerInfo
+    {
+        display: none;
+    }
+
+    .footer_responsive768{
+        display: block;
+    }
 }
 
 

@@ -87,7 +87,7 @@ export default function DetailTheater(props) {
                 <div className="container">
                     <div className={toggleState === 2 ? "detailBottom activeDetail" : "detailBottom"}>
                         <div className="row my-4 mx-5 text-dark" style={{fontSize:'16px'}}>
-                            <div className="col-6">
+                            <div className="col-sm-12 col-md-6">
                                 <div className="d-flex">
                                     <p style={{width: '35%'}}>Địa Điểm</p>
                                     <p style={{width: '65%'}}>L3-Bitexco Icon 68, 2 Hải Triều, Q.1</p>
@@ -109,22 +109,22 @@ export default function DetailTheater(props) {
                                     <p style={{width: '65%'}}>8:00 - 24:00</p>
                                 </div>
                             </div>
-                            <div className="col-6">
+                            <div className="col-sm-12 col-md-6">
                                 <p>Giới Thiệu</p>
                                 <p>BHD Star Bitexco ICON 68 là một trong những cụm rạp được đầu tư quy mô nhất hiện nay tại Việt Nam, với tổng diện tích hơn 2.000 m2, bao gồm 7 phòng chiếu được trang bị theo tiêu chuẩn quốc tế. Âm thanh đạt chuẩn Dolby 7.1 với hệ thống cách âm hiện đại, trong đó có 4 phòng 3D,  cùng hơn 1.000 ghế ngồi được thiết kế theo kiểu dáng đẹp mắt và tiện dụng để mang lại sự thoải mái nhất cho khán giả.</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className='container' style={{ width: '650px' }}>
+                <div className='container danhGiaRap'>
                     <div className={toggleState === 3 ? "detailBottom activeDetail " : "detailBottom"}>
                         <div className='row bg-white'>
                             <div className='col-12 d-flex justify-content-start position-relative'>
-                                <div>
+                                <div className='imgUser'>
                                     <img className="" src="https:tix.vn/app/assets/img/icons/web-logo.png" style={{ width: 50, height: 50 }} alt="https:tix.vn/app/assets/img/icons/web-logo.png" />
                                 </div>
                                 <input className='w-100 px-2' type="text" placeholder="Hãy chấm điểm cho rạp nha!" style={{ border: 'none', padding: '0 60px' }} />
-                                <div className="position-absolute" style={{ right: '2%', top: '20%' }}>
+                                <div className="position-absolute saoDanhGia">
                                     <img src="https://tix.vn/app/assets/img/icons/listStar.png" />
                                 </div>
                             </div>

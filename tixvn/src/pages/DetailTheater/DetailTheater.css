@@ -1,0 +1,24 @@
+.danhGiaRap{
+    width: '650px'
+}
+
+.danhGiaRap .saoDanhGia{
+    right: 2%;
+    top: 20%;
+}
+
+@media screen and (max-width: 520px) {
+    .danhGiaRap{
+        width: '320px'
+    }
+
+    .danhGiaRap .imgUser{
+        transform: scale(0.8);
+    }
+
+    .danhGiaRap .saoDanhGia{
+        right: -8%;
+        top: 25%;
+        transform: scale(0.5);
+    }
+}

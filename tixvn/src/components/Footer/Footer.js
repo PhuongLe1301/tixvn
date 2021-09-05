@@ -5,7 +5,7 @@ import _ from 'lodash';
 
 export default function Footer(props) {
 
-    const {heThongRapChieu} = useSelector(state => state.TheaterReducer);
+    const { heThongRapChieu } = useSelector(state => state.TheaterReducer);
     const arrHeThongRap = _.map(heThongRapChieu, (heThongRap) =>
         _.pick(heThongRap, ['maHeThongRap', 'tenHeThongRap', 'logo'])
     );
@@ -15,7 +15,7 @@ export default function Footer(props) {
         <div className="bg-dark text-white">
             <div className="container footer">
                 <div className="row py-3">
-                    <div className="col-4">
+                    <div className="col-4 footerInfo">
                         <p>TIX</p>
                         <div className="row">
                             <div className="col-6">
@@ -28,6 +28,7 @@ export default function Footer(props) {
                             </div>
                         </div>
                     </div>
+
                     <div className="col-4 doitac_footer">
                         <p>ĐỐI TÁC</p>
                         <div className="col-12 p-0">
@@ -99,7 +100,7 @@ export default function Footer(props) {
                             </a>
                         </div>
                     </div>
-                    <div className="col-4">
+                    <div className="col-4 appRecomend">
                         <div className="row">
                             <div className="col-6">
                                 <p>MOBILE APP</p>
@@ -126,7 +127,29 @@ export default function Footer(props) {
                         </div>
                     </div>
                 </div>
-                <hr/>
+                <div className="footer_responsive768">
+                    <div className="row">
+                        <div className="col-6" style={{ width: '155px' }}>
+                            <div className="mb-3">
+                                <a href="#">Thỏa thuận sử dụng</a>
+                            </div>
+                            <div>
+                                <a href="#" className="d-block">Chính sách bảo mật</a>
+                            </div>
+                        </div>
+                        <div className="col-6">
+                            <div className="d-flex">
+                                <a target="_blank" href="https://www.facebook.com/">
+                                    <img src="https://tix.vn/app/assets/img/icons/facebook-logo.png" alt="https://tix.vn/app/assets/img/icons/facebook-logo.png" />
+                                </a>
+                                <a target="_blank" href="https://www.zalo.me/pc">
+                                    <img src="https://tix.vn/app/assets/img/icons/zalo-logo.png" alt="https://tix.vn/app/assets/img/icons/zalo-logo.png" />
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <hr />
                 <div className="pb-5">@2021 All rights reserved</div>
             </div>
         </div>

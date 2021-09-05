@@ -28,7 +28,7 @@ function App() {
         {/* Client  */}
         <HomeTemplate component={Home} exact path="/" />
         <HomeTemplate component={Detail} exact path="/detail/:postId" />
-        <HomeTemplate component={DetailTheater} exact path="/detail/:postId" />
+        <HomeTemplate component={DetailTheater} exact path="/detailtheater/:postId" />
         <HomeTemplate component={User} exact path="/user"/>
         <CheckoutTemaplate component={CheckOut} exact path="/checkout/:id" />
 

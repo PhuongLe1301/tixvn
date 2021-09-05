@@ -258,3 +258,55 @@
         right: 60px;
     }
 }
+
+@media screen and (min-width: 521px) and (max-width: 768px) {
+    /* CAROUSEL MOVIE  */
+    .jSLnSZ{
+        grid-template-columns: repeat(7,40%) !important;
+        grid-column-gap: calc(126% + 0px) !important;
+    }
+
+    .ccDPGy{
+        grid-template-columns: repeat(9,42%) !important;
+        grid-column-gap: calc(129% + 0px) !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* CAROUSEL BANNER  */
+    #carouselTix .carousel__content img{
+        height: 323px;
+    }
+
+    /* CAROUSEL MOVIE  */
+   .recommendMovie_item .bhRnqO{
+        right: 90px;
+    }
+    .jSLnSZ{
+        grid-template-columns: repeat(7,40%) !important;
+        grid-column-gap: calc(126% + 0px) !important;
+    }
+
+    .ccDPGy{
+        grid-template-columns: repeat(9,42%) !important;
+        grid-column-gap: calc(129% + 0px) !important;
+    }
+
+    /* FILTER MOVIE  */
+    .filterMovie{
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 520px) {
+    /* CAROUSEL MOVIE  */
+    .jSLnSZ{
+        grid-template-columns: repeat(7,79%) !important;
+        grid-column-gap: calc(126% + 394px) !important;
+    }
+
+    .ccDPGy{
+        grid-template-columns: repeat(9,71%) !important;
+        grid-column-gap: calc(129% + 57px) !important;
+    }
+}
