@@ -7,6 +7,7 @@ import { CHANGE_TAB_ACTIVE, DAT_VE } from '../../ultil/setting';
 import { datVeAction, layThongTinNguoiDungAction } from '../../redux/action/UserAction';
 import { Tabs } from 'antd';
 import moment from 'moment';
+import { NavLink } from 'react-router-dom';
 function CheckOut(props) {
     const { chiTietPhongVe, danhSachGheDangDat } = useSelector(state => state.FilmReducer)
     const { thongTinPhim, danhSachGhe } = chiTietPhongVe;
@@ -46,12 +47,12 @@ function CheckOut(props) {
         <div className="bgCOut">
             <div className="container-fluid">
                 <div className="row">
-                    <div className="listSeat col-9 mt-2">
+                    <div className="listSeat col-9 mt-1">
                         <div>
                             <div className="d-flex ml-4">
-                                <img src="https://s3img.vcdn.vn/123phim/2018/09/1721cfa98768f300c03792e25ceb0191.png" className="mt-4 mr-3" width="50" height="50" />
+                                <NavLink to="/"><img src="https:tix.vn/app/assets/img/icons/web-logo.png" className="mt-4 mr-3" width="50" height="50" /></NavLink> 
                                 <div className="mt-4 text-white">
-                                    <span>CineStar</span>
+                                    <span>{thongTinPhim?.tenCumRap}</span>
                                     <h4 className="text-white">{thongTinPhim?.ngayChieu}-{thongTinPhim?.gioChieu}-{thongTinPhim?.tenRap}</h4>
                                 </div>
                             </div>

@@ -21,8 +21,6 @@ const { SubMenu } = Menu;
 export default function AdminTemplate(props) {
 
   const {userLogin} = useSelector( state => state.UserReducer);
-  // console.log('userLogin', userLogin);
-
   const [state, setState] = useState({
     collapsed: false,
   });
@@ -35,7 +33,6 @@ export default function AdminTemplate(props) {
   };
 
   const handleClick = e => {
-    console.log('click ', e);
     setState({ current: e.key });
   };
 

@@ -29,7 +29,6 @@ const EditMovie = (props) => {
             hinhAnh: null,
         },
         onSubmit: (values) => {
-            // console.log('values', values);
             let formData = new FormData();
             for (let key in values) {
                 if (key !== 'hinhAnh') {
@@ -73,12 +72,10 @@ const EditMovie = (props) => {
             let reader = new FileReader();
             reader.readAsDataURL(file);
             reader.onload = (e) => {
-                // console.log(e.target.result);
                 setImgSrc(e.target.result);
             }
             
         }
-        // console.log('file', file);
     }
 
     return (props.trigger) ? (

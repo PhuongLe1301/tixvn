@@ -8,8 +8,6 @@ export default function Movie(props) {
 
     const { movie } = props;
 
-    // to={`/detail/${movie.maPhim}`}
-
     return (
         <NavLink to={`/detail/${movie.maPhim}`} className="recommendMovie_item">
             <div className="movie-img position-relative px-2">

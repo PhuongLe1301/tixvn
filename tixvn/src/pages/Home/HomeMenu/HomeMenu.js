@@ -62,7 +62,6 @@ export default class HomeMenu extends React.PureComponent {
     }
 
     render() {
-        // console.log('props hethongrapchieu', this.props);
         return (
             <Tabs tabPosition={'left'} className="homeMenu border p-2 mb-3">
                 {this.renderHeThongRap()}

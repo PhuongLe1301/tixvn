@@ -13,7 +13,6 @@ const { Search } = Input;
 export default function ManageMovie() {
 
   const { arrFilmDefault } = useSelector(state => state.FilmReducer);
-  // console.log('arrFilmDefault', arrFilmDefault);
 
   const dispatch = useDispatch();
 
@@ -90,7 +89,6 @@ export default function ManageMovie() {
         return <Space size="middle">
           <Button className="btnManageMovie action-btn" onClick={() => {  
             setButtonPopup(true);
-            // console.log('tenPhim', movie.tenPhim);
           }}>Tạo lịch chiếu</Button>
           <PopupShowtime movie={movie} trigger={buttonPopup} setTrigger={setButtonPopup}>
           </PopupShowtime>
@@ -115,7 +113,6 @@ export default function ManageMovie() {
   const data = arrFilmDefault;
 
   function onChange(pagination, filters, sorter, extra) {
-    // console.log('params', pagination, filters, sorter, extra);
   }
 
   return (
