@@ -4,71 +4,39 @@ import Slider from "react-slick";
 import styleSlick from '../../../components/ReactSlick/MultipleRowsSlick.module.css';
 import '../../../components/ReactSlick/MultipleRowsSlick.css';
 import Movie from "../../../components/Movie/Movie";
+import Carousel from 'react-grid-carousel';
 
 export default function DangChieu(props) {
-
-    function SampleNextArrow(props) {
-        const { className, style, onClick } = props;
-        return (
-            <div
-                className={`${className} ${styleSlick['slick-next']}`}
-                style={{
-                    ...style, display: "block",
-                    transform: 'scale(0.3)',
-                    top: '42%',
-                    right: 0
-                }}
-                onClick={onClick}
-            />
-        );
-    }
-
-    function SamplePrevArrow(props) {
-        const { className, style, onClick } = props;
-        return (
-            <div
-                className={`${className} ${styleSlick['slick-prev']}`}
-                style={{
-                    ...style, display: "block",
-                    transform: 'scale(0.15)',
-                    left: '-32px',
-                    top: '42%',
-                }}
-                onClick={onClick}
-            />
-        );
-    }
 
     const { arrFilm } = props
 
 
     const renderSapChieu = () => {
         return arrFilm.filter(film => film.dangChieu != true).map((movie, index) => {
-            return <Fragment key={index}>
+            return <Carousel.Item>
                 <Movie movie={movie} />
-            </Fragment>
+            </Carousel.Item>
         })
     }
 
-    const settings = {
-        className: "center variable-width",
-        centerMode: true,
-        infinite: true,
-        centerPadding: "60px",
-        slidesToShow: 3,
-        speed: 500,
-        rows: 1,
-        slidesPerRow: 2,
-        variableWidth: true,
-        nextArrow: <SampleNextArrow />,
-        prevArrow: <SamplePrevArrow />,
-    };
+    const breakPoints = [
+        [
+            {
+              breakpoint: 700,
+              cols: 3,
+              rows: 1,
+              gap: 10,
+              loop: true,
+              autoplay: 1000
+            }
+          ]
+      ];
 
     return (
         <div>
-            <Slider {...settings}>
+            <Carousel cols={5} rows={2} gap={10} loop breakPoints={breakPoints}>
                 {renderSapChieu()}
-            </Slider>
+            </Carousel>
         </div>
     )
 }

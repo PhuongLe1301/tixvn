@@ -25,8 +25,8 @@
 }
 .account {
     position: absolute;
-    right: 8%;
-    width: 10%;
+    right: 3%;
+    width: 17%;
 }
 .imgAccount {
     height: auto;
@@ -46,9 +46,6 @@
     font-weight: 12px;
     font-size: 1.2rem;
     color: grey;
-}
-.location {
-    margin-top: -1%;
 }
 .border {
     border: none;
@@ -89,6 +86,13 @@
 .nav-icon {
     display: none;
 }
+
+@media screen and (max-width: 1024px) {
+    .account{
+        right: 10%;
+    }
+}
+
 @media screen and (max-width: 960px) {
     .nav-menu {
         display: flex;

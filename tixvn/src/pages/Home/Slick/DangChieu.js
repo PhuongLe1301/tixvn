@@ -8,68 +8,42 @@ import Movie from "../../../components/Movie/Movie";
 
 export default function DangChieu(props) {
 
-    function SampleNextArrow(props) {
-        const { className, style, onClick } = props;
-        return (
-            <div
-                className={`${className} ${styleSlick['slick-next']}`}
-                style={{
-                    ...style, display: "block",
-                    transform: 'scale(0.3)',
-                    top: '42%',
-                    right: 0
-                }}
-                onClick={onClick}
-            />
-        );
-    }
-
-    function SamplePrevArrow(props) {
-        const { className, style, onClick } = props;
-        return (
-            <div
-                className={`${className} ${styleSlick['slick-prev']}`}
-                style={{
-                    ...style, display: "block",
-                    transform: 'scale(0.15)',
-                    left: '-32px',
-                    top: '42%',
-                }}
-                onClick={onClick}
-            />
-        );
-    }
-
     const { arrFilm } = props
-
 
     const renderDangChieu = () => {
         return arrFilm.filter(film => film.dangChieu == true).map((movie, index) => {
-            return <Fragment key={index}>
+            return <Carousel.Item>
                 <Movie movie={movie} />
-            </Fragment>
+            </Carousel.Item>
         })
     }
 
-    const settings = {
-        className: "center variable-width",
-        centerMode: true,
-        infinite: true,
-        centerPadding: "60px",
-        slidesToShow: 3,
-        speed: 500,
-        rows: 1,
-        slidesPerRow: 2,
-        variableWidth: true,
-        nextArrow: <SampleNextArrow />,
-        prevArrow: <SamplePrevArrow />,
-    };
+    const breakPoints = [
+        [
+            {
+              breakpoint: 1024,
+              cols: 3,
+              rows: 2,
+              gap: 20,
+              loop: true,
+            }
+          ]
+      ];
 
     return (
         <div>
-            <Slider {...settings}>
+            <Carousel cols={4} rows={2} gap={5} loop responsiveLayout={[
+                {
+                    breakpoint: 1024,
+                    cols: 3
+                },
+                {
+                    breakpoint: 990,
+                    cols: 2
+                }
+            ]}>
                 {renderDangChieu()}
-            </Slider>
+            </Carousel>
         </div>
     )
 }

@@ -13,7 +13,7 @@ export default function Movie(props) {
     return (
         <NavLink to={`/detail/${movie.maPhim}`} className="recommendMovie_item">
             <div className="movie-img position-relative px-2">
-                <img className="rounded" src={movie.hinhAnh} alt={movie.tenPhim} />
+                <img className="rounded" src={movie.hinhAnh} alt={movie.tenPhim} onError={(e) => { e.target.onError = null; e.target.src = `https://picsum.photos/id/80/95` }}/>
                 <div className="movie-rate position-absolute rounded text-center">
                     <p className="txtPoint text-white pt-1 mb-1">{movie.danhGia}</p>
                     <div className="movie-start">
@@ -25,7 +25,7 @@ export default function Movie(props) {
                 </div>
                 <div className="movie-overlay"></div>
                 <div className="movie-play text-white text-center">
-                    <a style={{ position: 'absolute', zIndex: '10000', transform: 'translateX(-50%)' }} text="Trailer" onClick={() => setButtonPopup(true)}>
+                    <a style={{ position: 'absolute', zIndex: '10000', transform: 'translateX(-50%)' }} onClick={() => setButtonPopup(true)}>
                         <i class="fa fa-play border border-white rounded-circle"></i>
                     </a>
 

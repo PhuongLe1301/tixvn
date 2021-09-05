@@ -13,13 +13,13 @@ export default function News(props) {
             <h2 className={toggleState === 2 ? "tabs active-tabs" : "tabs"} onClick={() => toggleTab(2)}>Review</h2>
             <h2 className={toggleState === 3 ? "tabs active-tabs" : "tabs"} onClick={() => toggleTab(3)}>Khuyến Mãi</h2>
         </div>
-        <div className={toggleState === 1 ? "detailBottom activeDetail" : "detailBottom"}>
+        <div className={toggleState === 1 ? "detailBottom activeDetail my-4" : "detailBottom"}>
             <DienAnh24h/>
         </div>
-        <div className={toggleState === 2 ? "detailBottom activeDetail" : "detailBottom"}>
+        <div className={toggleState === 2 ? "detailBottom activeDetail my-4" : "detailBottom"}>
             <Review/>
         </div>
-        <div className={toggleState === 3 ? "detailBottom activeDetail" : "detailBottom"}>
+        <div className={toggleState === 3 ? "detailBottom activeDetail my-4" : "detailBottom"}>
             <KhuyenMai/>
         </div>
     </div>

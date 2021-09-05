@@ -89,7 +89,7 @@ export default function Home(props) {
             <div id="cumRap" className="container">
                 <HomeMenu heThongRapChieu={heThongRapChieu} />
             </div>
-            <div id="tinTuc" className="pt-5">
+            <div id="tinTuc">
                 <News/>
             </div>
         </div>
