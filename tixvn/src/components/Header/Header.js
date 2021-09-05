@@ -47,7 +47,7 @@ export default function Header() {
                         <a className="nav-links" activeClassName="active" href="#cumRap">Cụm rạp</a>
                     </li>
                     <li className="nav-item">
-                        <a className="nav-links" activeClassName="active" href="#">Tin Tức</a>
+                        <a className="nav-links" activeClassName="active" href="#tinTuc">Tin Tức</a>
                     </li>
                     <li className="nav-item">
                         <a className="nav-links" activeClassName="active" href="#">Ứng dụng</a>

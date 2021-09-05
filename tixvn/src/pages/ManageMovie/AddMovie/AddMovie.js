@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import '../ShowTime/PopupShowtime.css';
 import { Form, Button, Input, DatePicker, Switch, InputNumber } from 'antd';
 import { CloseCircleOutlined } from '@ant-design/icons';
@@ -28,9 +28,7 @@ const AddMovie = (props) => {
             hinhAnh: {},
         },
         onSubmit: (values) => {
-            // console.log('values', values);
             let formData = new FormData();
-            // values.maNhom = GROUPID;
             for(let key in values){
                 if(key !== 'hinhAnh'){
                     formData.append(key, values[key])
@@ -46,7 +44,12 @@ const AddMovie = (props) => {
     useEffect(()=>{
         Aos.init({duration:2000});
     }, []);
-
+    const modalRef = useRef()
+    const closeModal = e => {
+        if (modalRef.current === e.target) {
+            props.setTrigger(false)
+        }
+    }
     const handleChangeDatePicker = (value) => {
         let ngayKhoiChieu = moment(value).format('DD/MM/YYYY');
         formik.setFieldValue('ngayKhoiChieu',ngayKhoiChieu);
@@ -65,16 +68,14 @@ const AddMovie = (props) => {
             let reader = new FileReader();
             reader.readAsDataURL(file);
             reader.onload = (e) => {
-                // console.log(e.target.result);
                 setImgSrc(e.target.result);
             }
             formik.setFieldValue('hinhAnh', file);
         }
-        // console.log('file', file);
     }
 
     return (props.trigger) ? (
-        <div className="popupShowtime">
+        <div className="popupShowtime" ref={modalRef} onClick={closeModal}>
             <div data-aos="zoom-in" className="popupShowtime-inner text-white">
                 <CloseCircleOutlined
                     className="close-btn"

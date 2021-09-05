@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import './PopupShowtime.css';
 import { Form, Button, Select, DatePicker, InputNumber, Input } from 'antd';
 import { CloseCircleOutlined } from '@ant-design/icons';
@@ -56,6 +56,12 @@ function PopupShowtime(props) {
 
         Aos.init({ duration: 2000 });
     }, []);
+    const modalRef = useRef()
+    const closeModal = e => {
+        if (modalRef.current === e.target) {
+            props.setTrigger(false)
+        }
+    }
 
     const onChangeDate = (values) => {
         formik.setFieldValue('ngayChieuGioChieu', moment(values).format('DD/MM/YYYY hh:mm:ss'));
@@ -95,7 +101,7 @@ function PopupShowtime(props) {
     }
 
     return (props.trigger) ? (
-        <div className="popupShowtime">
+        <div className="popupShowtime" ref={modalRef} onClick={closeModal}>
             <div data-aos="zoom-in" className="popupShowtime-inner text-white">
                 <CloseCircleOutlined
                     className="close-btn"
