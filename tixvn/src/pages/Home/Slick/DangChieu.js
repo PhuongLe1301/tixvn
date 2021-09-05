@@ -18,18 +18,6 @@ export default function DangChieu(props) {
         })
     }
 
-    const breakPoints = [
-        [
-            {
-              breakpoint: 1024,
-              cols: 3,
-              rows: 2,
-              gap: 20,
-              loop: true,
-            }
-          ]
-      ];
-
     return (
         <div>
             <Carousel cols={4} rows={2} gap={5} loop responsiveLayout={[
