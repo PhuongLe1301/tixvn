@@ -9,7 +9,6 @@ import { NavLink } from 'react-router-dom'
 export default function Register(props) {
     const dispatch = useDispatch()
     const { userRegister } = useSelector(state => state.UserReducer);
-    // console.log('userRegister', userRegister);
     const formik = useFormik({
         initialValues: {
             taiKhoan: '',

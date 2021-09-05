@@ -9,8 +9,6 @@ export default function Footer(props) {
     const arrHeThongRap = _.map(heThongRapChieu, (heThongRap) =>
         _.pick(heThongRap, ['maHeThongRap', 'tenHeThongRap', 'logo'])
     );
-    // console.log('arr', arrHeThongRap);
-
     return (
         <div className="bg-dark text-white">
             <div className="container footer">

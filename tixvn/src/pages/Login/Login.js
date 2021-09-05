@@ -10,7 +10,6 @@ export default function Login() {
     const dispatch = useDispatch();
 
     const { userLogin } = useSelector(state => state.UserReducer);
-    // console.log('userLogin', userLogin);
     const formik = useFormik({
         initialValues: {
             taiKhoan: '',

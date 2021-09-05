@@ -6,7 +6,6 @@ import UserDetail from './UserDetail';
 export default function User(props) {
     const { thongTinNguoiDung } = useSelector(state => state.UserReducer)
     const dispatch = useDispatch();
-    // console.log(thongTinNguoiDung)
     useEffect(() => {
         const action = layThongTinNguoiDungAction();
         dispatch(action)

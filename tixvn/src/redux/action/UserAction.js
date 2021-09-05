@@ -2,7 +2,7 @@ import axios from 'axios'
 import { history } from '../../App'
 import { quanLyNguoiDungService } from '../../components/services/QuanLyNguoiDungService';
 import { ACCESSTOKEN, CHUYEN_TAB, DAT_VE_HOAN_TAT } from '../../ultil/setting';
-import { getDetailAction} from './FilmAction';
+import { getDetailAction } from './FilmAction';
 import { displayLoadingAction, hideLoadingAction } from './LoadingAction';
 import { DANG_KY_ACTION, DANG_NHAP_ACTION, SET_THONG_TIN_NGUOI_DUNG } from './types/UserType';
 
@@ -52,9 +52,9 @@ export const datVeAction = (thongTinDatVe) => {
                 }
             })
             await dispatch(getDetailAction(thongTinDatVe.maLichChieu))
-            dispatch({type:DAT_VE_HOAN_TAT})
+            dispatch({ type: DAT_VE_HOAN_TAT })
             await dispatch(hideLoadingAction)
-            dispatch({type:CHUYEN_TAB})
+            dispatch({ type: CHUYEN_TAB })
         }
         catch (error) {
             dispatch(hideLoadingAction)
@@ -73,7 +73,7 @@ export const layThongTinNguoiDungAction = () => {
                     thongTinNguoiDung: result.data.content
                 });
             }
-            dispatch(hideLoadingAction)
+            await dispatch(hideLoadingAction)
         }
         catch (error) {
             dispatch(hideLoadingAction)
@@ -81,13 +81,13 @@ export const layThongTinNguoiDungAction = () => {
         }
     }
 }
-export const updateClientAction = (dataClient)=>{
-    return async dispatch =>{
-        try{
-            const result = await axios ({
-                url:'http://movieapi.cyberlearn.vn/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung',
-                method:'PUT',
-                data:dataClient,
+export const updateClientAction = (dataClient) => {
+    return async dispatch => {
+        try {
+            const result = await axios({
+                url: 'http://movieapi.cyberlearn.vn/api/QuanLyNguoiDung/CapNhatThongTinNguoiDung',
+                method: 'PUT',
+                data: dataClient,
                 headers: {
                     'Authorization': `Bearer ${localStorage.getItem(ACCESSTOKEN)}`
                 }
