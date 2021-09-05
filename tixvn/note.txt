@@ -1,0 +1,14 @@
+Như Hảo
+- Trang chủ
+- Chi tiết cụm rạp 
+- Đăng nhập 
+- Lịch sử đặt vé 
+- Quản lý phim 
+
+Thế Phương 
+- Chi tiết phim
+- Đặt vé 
+- Đăng ký 
+- Thông tin cá nhân
+- Quản lý người dùng 
+
