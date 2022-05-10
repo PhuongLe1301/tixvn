@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Tag, Space, Input, Button } from 'antd';
+import { Table, Tag, Space, Input, Button, Modal } from 'antd';
 import { AudioOutlined } from '@ant-design/icons';
 import './ManageMovie.css';
 import AddUser from './AddUser';
@@ -14,12 +14,14 @@ const { Search } = Input;
 export default function ManageUser(props) {
   const dispatch = useDispatch()
   const danhSachNguoiDung = useSelector(state => state.AdminReducer.danhSachNguoiDung)
+  const [visible, setVisible] = useState(false)
   const [buttonPopupAdd, setButtonPopupAdd] = useState(false);
   const [buttonPopupEdit, setButtonPopupEdit] = useState(false);
   useEffect(() => {
     const action = getApiUserAction()
     dispatch(action)
   }, [])
+
   const suffix = (
     <AudioOutlined
       style={{
@@ -28,7 +30,7 @@ export default function ManageUser(props) {
       }}
     />
   );
-
+  
   const onSearch = value => {
     dispatch(searchUserAction(value))
     if (value == '') {
@@ -89,6 +91,8 @@ export default function ManageUser(props) {
               dispatch(deleteUserAction(nguoiDung.taiKhoan))
             }
           }}>Xóa</Button>
+          <Button onClick={() => {setVisible(!visible)}}>Test</Button>
+          
         </Space>
       ),
     },
@@ -105,7 +109,7 @@ export default function ManageUser(props) {
         </Space>,
       </div>
       <Table className="ml-3 manageMovie-table" columns={columns} dataSource={data} rowKey={"taiKhoan"} />
-
+      <Modal visible={visible} title="Hello" />
     </div>
   )
 }

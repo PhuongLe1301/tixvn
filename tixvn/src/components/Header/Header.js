@@ -12,7 +12,8 @@ export default function Header() {
     const handleClick = () => setClick(!click);
     const { userLogin } = useSelector(state => state.UserReducer)
     const isLogin = () => {
-        <img className="imgAccount" src="https:tix.vn/app/assets/img/avatar.png" />
+        // <img className="imgAccount" src="https:tix.vn/app/assets/img/avatar.png" />
+        // <img className="imgAccount" src="../../public/img/hplogo.jpg" />
     }
 
     const renderLogin = () =>{
@@ -37,7 +38,8 @@ export default function Header() {
         <nav className="navbar">
             <div className="nav-container">
                 <NavLink to="/" className='mb-3'>
-                    <img className="nav-logo" src="https:tix.vn/app/assets/img/icons/web-logo.png" style={{ width: 50, height: 50 }} alt="https:tix.vn/app/assets/img/icons/web-logo.png" />
+                    {/* <img className="nav-logo" src="https:tix.vn/app/assets/img/icons/web-logo.png" style={{ width: 50, height: 50 }} alt="https:tix.vn/app/assets/img/icons/web-logo.png" /> */}
+                    <img className="nav-logo" src="../img/hplogo.jpg" style={{ width: 50, height: 50 }} alt="hp logo" />
                 </NavLink>
                 <ul className={click ? "nav-menu active" : "nav-menu"}>
                     <li className="nav-item">
@@ -53,14 +55,16 @@ export default function Header() {
                         <a className="nav-links" activeClassName="active" href="#">Ứng dụng</a>
                     </li>
                 </ul>
-                <div className="account mb-3 mr-5">
-                    <img className="imgAccount" src="https:tix.vn/app/assets/img/avatar.png" />
+                <div className="account mb-4 mr-5">
+                    {/* <img className="imgAccount" src="https:tix.vn/app/assets/img/avatar.png" /> */}
+                    <img className="imgAccount" src="../img/hplogo.jpg" />
                     {/* {_.isEmpty(userLogin) ? <NavLink className="p" to='/login'>Đăng Nhập</NavLink> : <NavLink className="p" to="/">{userLogin.hoTen}</NavLink>} */}
                     {renderLogin()}
 
                 </div>
                 <div className="location text-dark mb-4">
-                    <img className='mr-2' src="https:tix.vn/app/assets/img/icons/location-header.png" />
+                    {/* <img className='mr-2' src="https:tix.vn/app/assets/img/icons/location-header.png" /> */}
+                    <i className='mr-2 fa fa-map-marker-alt'></i>
                     <select className="border">
                         <option>Hồ Chí Minh</option>
                         <option>Hà Nội</option>

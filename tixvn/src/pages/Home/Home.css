@@ -19,11 +19,11 @@
 }
 
 #carouselTix .carousel-control-prev-icon{
-    background-image: url("https://tix.vn/app/assets/img/icons/back-session.png");   
+    background-image: url("https://cdn-user-icons.flaticon.com/16035/16035505/1651833850965.svg?token=exp=1651834759~hmac=7f361469ba63a4245956349c242c1c57");  
 }
 
 #carouselTix .carousel-control-next-icon{
-    background-image: url("https://tix.vn/app/assets/img/icons/next-session.png");
+    background-image: url("https://cdn-user-icons.flaticon.com/16035/16035505/1651833949547.svg?token=exp=1651834857~hmac=53ac6c09f6d556b3db6821a72a88c668");
 }
 
 #carouselTix .carousel-control-next-icon, .carousel-control-prev-icon{

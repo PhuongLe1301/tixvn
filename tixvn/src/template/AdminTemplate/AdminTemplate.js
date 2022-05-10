@@ -56,7 +56,7 @@ export default function AdminTemplate(props) {
           <Sider trigger={null} collapsible collapsed={state.collapsed}>
             <div className="logo">
                 <NavLink to='/'>
-                  <img src="https:tix.vn/app/assets/img/icons/web-logo.png" style={{ width: 50, height: 50 }} alt="https:tix.vn/app/assets/img/icons/web-logo.png" />
+                  <img src="../img/hplogo.jpg" style={{ width: 50, height: 50 }} alt="https:tix.vn/app/assets/img/icons/web-logo.png" />
                 </NavLink>
             </div>
             <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
@@ -79,7 +79,7 @@ export default function AdminTemplate(props) {
                   Chào!,
                   <span> {userLogin.hoTen}</span>
                 </h4>
-                <img className="rounded-circle ml-3" src="https:tix.vn/app/assets/img/icons/web-logo.png" alt="https:tix.vn/app/assets/img/icons/web-logo.png" />
+                <img className="rounded-circle ml-3" src="../img/hplogo.jpg" alt="hplogo" />
                 <Menu className="text-white" onClick={handleClick} selectedKeys={[current]} mode="horizontal">
                   <SubMenu key="SubMenu" icon={<CaretDownFilled style={{ fontSize: '20px' }} />}>
                     <Menu.ItemGroup>

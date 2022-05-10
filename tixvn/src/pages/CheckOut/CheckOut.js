@@ -50,7 +50,7 @@ function CheckOut(props) {
                     <div className="listSeat col-9 mt-1">
                         <div>
                             <div className="d-flex ml-4">
-                                <NavLink to="/"><img src="https:tix.vn/app/assets/img/icons/web-logo.png" className="mt-4 mr-3" width="50" height="50" /></NavLink> 
+                                <NavLink to="/"><img src="../img/hplogo.jpg" className="mt-4 mr-3" width="50" height="50" /></NavLink> 
                                 <div className="mt-4 text-white">
                                     <span>{thongTinPhim?.tenCumRap}</span>
                                     <h4 className="text-white">{thongTinPhim?.ngayChieu}-{thongTinPhim?.gioChieu}-{thongTinPhim?.tenRap}</h4>
@@ -58,7 +58,7 @@ function CheckOut(props) {
                             </div>
                         </div>
                         <div className="text-center">
-                            <img src="https://tix.vn/app/assets/img/icons/screen.png" className="screenCine" alt="..." />
+                            <img src="https://www.cgv.vn/skin/frontend/cgv/default/images/bg-cgv/bg-screen.png" className="screenCine" alt="..." />
                             <br />
                             {renderGhe()}
                         </div>
@@ -163,9 +163,9 @@ function KetQuaDatVe(props) {
     const renderTicketItem = () => {
         return thongTinNguoiDung?.thongTinDatVe?.map((item, index) => {
             const seats = _.first(item.danhSachGhe);
-            return <div className="col-3 cardCOut" key={index}>
+            return <div className="col-2 pt-2 text-center cardCOut" style={{lineHeight:'25px'}} key={index}>
                 <img className="card-imageCout" src={item.hinhAnh} />
-                <h2>{item.tenPhim}</h2>
+                <h2 style={{height:150}}>{item.tenPhim}</h2>
                 <p>Giờ Chiếu:{moment(item.ngayDat).format('hh:mmA')} - Ngày:{moment(item.ngayDat).format('DD/MM/YYYY')}</p>
                 <p>Địa điểm: {seats.tenHeThongRap}</p>
                 <p>Tên rạp : {seats.tenCumRap} - Ghế {item.danhSachGhe.map((ghe, index) => {
@@ -180,7 +180,6 @@ function KetQuaDatVe(props) {
         <section className="container">
             <div className="row cardDesign">
                 {renderTicketItem()}
-
             </div>
 
         </section>

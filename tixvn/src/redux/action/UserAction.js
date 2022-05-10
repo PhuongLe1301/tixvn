@@ -55,6 +55,7 @@ export const datVeAction = (thongTinDatVe) => {
             dispatch({ type: DAT_VE_HOAN_TAT })
             await dispatch(hideLoadingAction)
             dispatch({ type: CHUYEN_TAB })
+            console.log('thanhcong')
         }
         catch (error) {
             dispatch(hideLoadingAction)
