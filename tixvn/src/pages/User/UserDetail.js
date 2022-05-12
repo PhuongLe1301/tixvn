@@ -33,6 +33,10 @@ export default function UserDetail(props) {
     const { handleChange, touched, errors } = formik;
     return (
         <div>
+            <div className='mb-4 ml-5' style={{fontSize:'25px'}}>   
+                {thongTinNguoiDung.loaiNguoiDung === 'Quản trị' ? <button className='px-3' style={{borderRadius:'10px'}}>
+                    <a href='./admin/quanlyphim' style={{color:'red'}}>Tới trang quản lý</a></button>: ''}
+            </div>
             <Form
                 onSubmitCapture={formik.handleSubmit}
                 labelCol={{ span: 4 }}

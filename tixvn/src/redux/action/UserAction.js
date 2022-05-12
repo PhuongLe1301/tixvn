@@ -1,3 +1,4 @@
+import { message, notification } from 'antd';
 import axios from 'axios'
 import { history } from '../../App'
 import { quanLyNguoiDungService } from '../../components/services/QuanLyNguoiDungService';
@@ -19,6 +20,7 @@ export const dangKyAction = (thongTinNguoiDung) => {
             history.goBack();
         }
         catch (errors) {
+            notification.error({message:errors.response?.data.content})
             console.log('errors', errors.response?.data);
         }
     }
@@ -35,6 +37,7 @@ export const dangNhapAction = (thongTinDangNhap) => {
             }
             history.push('/');
         } catch (errors) {
+            notification.warning({message:'Vui lòng kiểm tra tài khoản và mật khẩu'})
             console.log('errors', errors.response?.data);
         }
     }

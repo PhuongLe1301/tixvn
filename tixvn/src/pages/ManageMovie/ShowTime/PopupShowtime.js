@@ -26,7 +26,8 @@ function PopupShowtime(props) {
             try{
 
                 const result = await manageTicketService.createShowtime(values);
-                alert(result.data.content)
+                alert(result.data.content);
+                window.location.reload();
 
             }catch(errors){
                 console.log('errors', errors.response?.data)

@@ -45,6 +45,9 @@ export default function Footer(props) {
                             <a target="_blank" href="http://cinestar.com.vn" title="Cinestar">
                                 {/* <img src="https://tix.vn/app/assets/img/icons/cinestar.png" alt="https://tix.vn/app/assets/img/icons/cinestar.png" /> */}
                                 <img src='../img/cinestar.png'/>
+                                <a target="_blank" href="http://lottecinemavn.com" title="Lotte Cinema">
+                                <img src="https://s3img.vcdn.vn/123phim/2018/09/404b8c4b80d77732e7426cdb7e24be20.png" alt="https://s3img.vcdn.vn/123phim/2018/09/404b8c4b80d77732e7426cdb7e24be20.png" />
+                            </a>
                             </a>
                         </div>
                         <div className="col-12 p-0">
@@ -67,9 +70,6 @@ export default function Footer(props) {
                             {/* <a target="_blank" href="https://cinemaxvn.com/" title="Cinemax">
                                 <img src="https://tix.vn/app/assets/img/icons/cnx.jpg" alt="https://tix.vn/app/assets/img/icons/cnx.jpg" />
                             </a> */}
-                            <a target="_blank" href="http://lottecinemavn.com" title="Lotte Cinema">
-                                <img src="https://s3img.vcdn.vn/123phim/2018/09/404b8c4b80d77732e7426cdb7e24be20.png" alt="https://s3img.vcdn.vn/123phim/2018/09/404b8c4b80d77732e7426cdb7e24be20.png" />
-                            </a>
                         </div>
                         <div className="col-12 p-0">
                             {/* <a target="_blank" href="http://starlight.vn/" title="Starlight">
